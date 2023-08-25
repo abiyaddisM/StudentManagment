@@ -31,6 +31,10 @@ public class AImagePanel extends JPanel {
         add(label);
 
     }
+    AImagePanel (String file,int top,int left,int bottom,int right){
+        this(file);
+        mainPanel.setBorder(new EmptyBorder(top,left,bottom,right));
+    }
     void addMain(Component component){
         mainPanel.add(component);
     }

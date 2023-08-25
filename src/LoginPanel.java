@@ -63,7 +63,7 @@ public class LoginPanel extends AImagePanel {
 
                 if(nameAndPassword.containsKey(username)){
                     if (nameAndPassword.get(username).equals(password)){
-                        ControlPanels.showTop();
+                        ControlPanels.showHome();
                     }else {
                         System.out.println("Wrong password");
                     }

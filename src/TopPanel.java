@@ -24,7 +24,7 @@ public class TopPanel extends AImagePanel {
         mainPanel.setBorder(new EmptyBorder(12,0,12,0));
         addPanel();
         addActionListener();
-        setVisible(false);
+//        setVisible(false);
     }
     void addPanel(){
         addMain(homeTab);
@@ -37,24 +37,28 @@ public class TopPanel extends AImagePanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 homeTab.setOff(courseTab,manageTab,settingTab);
+                ControlPanels.showHome();
             }
         });
         courseTab.label.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 courseTab.setOff(homeTab,manageTab,settingTab);
+                ControlPanels.showCourse();
             }
         });
         manageTab.label.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 manageTab.setOff(homeTab,courseTab,settingTab);
+                ControlPanels.showManage();
             }
         });
         settingTab.label.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 settingTab.setOff(homeTab,courseTab,manageTab);
+                ControlPanels.showSettings();
             }
         });
     }
