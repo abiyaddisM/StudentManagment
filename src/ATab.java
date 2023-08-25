@@ -81,5 +81,15 @@ public class ATab  extends JPanel {
             }
         });
     }
+    void setOff(ATab comp1,ATab comp2,ATab comp3){
+        comp1.state=false;
+        comp1.label.setIcon(comp1.nNormal);
+        comp2.state=false;
+        comp2.label.setIcon(comp2.nNormal);
+        comp3.state=false;
+        comp3.label.setIcon(comp3.nNormal);
+
+
+    }
 
 }
