@@ -40,5 +40,6 @@ public class SignUpPanel extends AImagePanel {
                 ControlPanels.showLogin();
             }
         });
+
     }
 }

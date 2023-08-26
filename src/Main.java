@@ -9,8 +9,8 @@ public class Main {
         TopPanel topPanel=new TopPanel("art/topBar/static/background.png");
         HomePanel homePanel=new HomePanel("art\\homePage\\static\\background\\background1.png");
         AFrame frame=new AFrame();
-//        frame.add(loginPanel);
-//        frame.add(signUpPanel);
+        frame.add(loginPanel);
+        frame.add(signUpPanel);
         frame.add(topPanel);
         frame.add((homePanel));
 

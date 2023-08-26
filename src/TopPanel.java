@@ -24,7 +24,7 @@ public class TopPanel extends AImagePanel {
         mainPanel.setBorder(new EmptyBorder(12,0,12,0));
         addPanel();
         addActionListener();
-//        setVisible(false);
+        setVisible(false);
     }
     void addPanel(){
         addMain(homeTab);
