@@ -1,3 +1,5 @@
+package AClass;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -10,7 +12,7 @@ public class AButton extends JPanel {
     protected ImageIcon normalIcon = new ImageIcon();
     protected ImageIcon pressIcon = new ImageIcon();
     protected ImageIcon hoverIcon = new ImageIcon();
-    JLabel label=new JLabel();
+    public JLabel label=new JLabel();
 
     public AButton(String normalUrl, String hoverUrl, String pressUrl) {
         normalIcon.setImage(new ImageIcon(normalUrl).getImage());
@@ -32,17 +34,6 @@ public class AButton extends JPanel {
     }
 
 
-
-
-
-
-    public void setPosition(int xPos, int yPos) {
-        setBounds(xPos, yPos, normalIcon.getIconWidth(), normalIcon.getIconHeight());
-    }
-
-
-
-
     void setAnimation() {
         label.addMouseListener(new MouseAdapter() {
             @Override
@@ -52,7 +43,18 @@ public class AButton extends JPanel {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                label.setIcon(hoverIcon);
+                if(label.contains(e.getPoint())){
+                    label.setIcon(hoverIcon);
+                }else{
+                    label.setIcon(normalIcon);
+
+                }
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+                    label.setIcon(normalIcon);
+
             }
         });
 
@@ -63,13 +65,6 @@ public class AButton extends JPanel {
             }
         });
 
-        AFrame.frame.addMouseMotionListener(new MouseMotionAdapter() {
-            @Override
-            public void mouseMoved(MouseEvent e) {
-                if (!contains(e.getPoint())) {
-                    label.setIcon(normalIcon);
-                }
-            }
-        });
+
     }
 }

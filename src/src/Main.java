@@ -1,5 +1,7 @@
-import javax.swing.*;
-import java.awt.*;
+package src;
+import Pages.*;
+import AClass.AFrame;
+import Pages.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,24 +10,19 @@ public class Main {
         SignUpPanel signUpPanel=new SignUpPanel("art/signUp/static/background/background.png");
         TopPanel topPanel=new TopPanel("art/topBar/static/background.png");
         HomePanel homePanel=new HomePanel("art\\homePage\\static\\background\\background1.png");
+        ManagePanel managePanel=new ManagePanel();
         AFrame frame=new AFrame();
         frame.add(loginPanel);
         frame.add(signUpPanel);
         frame.add(topPanel);
         frame.add((homePanel));
+        frame.add(managePanel);
 
         ControlPanels controlPanels=new ControlPanels();
         ControlPanels.setLogin(loginPanel);
         ControlPanels.setSignUp(signUpPanel);
         ControlPanels.setTop(topPanel);
         ControlPanels.setHome(homePanel);
-
-
-
-
-
-
-
-
+        ControlPanels.setManage(managePanel);
     }
 }

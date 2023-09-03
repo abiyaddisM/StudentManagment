@@ -1,3 +1,5 @@
+package AClass;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -10,7 +12,7 @@ public class ATab  extends JPanel {
     ImageIcon pNornal;
     ImageIcon pHover;
     ImageIcon pPress;
-    JLabel label=new JLabel();
+    public JLabel label=new JLabel();
     boolean state=false;
 
 
@@ -81,7 +83,7 @@ public class ATab  extends JPanel {
             }
         });
     }
-    void setOff(ATab comp1,ATab comp2,ATab comp3){
+    public void setOff(ATab comp1, ATab comp2, ATab comp3){
         comp1.state=false;
         comp1.label.setIcon(comp1.nNormal);
         comp2.state=false;

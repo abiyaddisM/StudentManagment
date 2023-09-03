@@ -1,3 +1,6 @@
+package Pages;
+import AClass.*;
+import src.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -13,7 +16,7 @@ public class SignUpPanel extends AImagePanel {
     private AButton signUpButton=new AButton("art/signUp/animate/signUpButton/normal.png","art/signUp/animate/signUpButton/hover.png","art/signUp/animate/signUpButton/press.png",66,0,58,0);
     private AImageLabel haveAnAccImage=new AImageLabel("art/signUp/static/writing/haveAnAcc.png",0,0,2,0);
     private AStringButton loginButton=new AStringButton("Login");
-    SignUpPanel(String file) {
+    public SignUpPanel(String file) {
         super(file);
         setVisible(false);
         addToPanel();

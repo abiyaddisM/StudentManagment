@@ -1,3 +1,6 @@
+package Pages;
+import AClass.*;
+import src.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -26,7 +29,7 @@ public class LoginPanel extends AImagePanel {
 
 
 
-    LoginPanel(String file) {
+    public LoginPanel(String file) {
         super(file);
         addToPanel();
         addLoginbuttonAction();
@@ -55,6 +58,7 @@ public class LoginPanel extends AImagePanel {
         nameAndPassword.put("abiyaddis","12345");
         nameAndPassword.put("User42069","getAlife");
         nameAndPassword.put("admin","admin");
+        nameAndPassword.put("","");
         loginbutton.label.addMouseListener(new MouseAdapter() {
 
             @Override
