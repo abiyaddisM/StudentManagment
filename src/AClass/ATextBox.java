@@ -1,3 +1,5 @@
+package AClass;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -5,16 +7,15 @@ import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 
-public class APasswordTextBox extends JLabel {
+public class ATextBox extends JLabel {
 
     protected ImageIcon normalIcon = new ImageIcon("art/loginPage/comp/text.png");
     protected ImageIcon pressIcon = new ImageIcon("art/loginPage/comp/text1.png");
 
-    protected JPasswordField textLabel = new JPasswordField();
+    public JTextField textLabel = new JTextField();
     boolean state = false;
 
-    APasswordTextBox() {
-        setLayout(new BorderLayout());
+    public ATextBox() {
 
         // Set up the label with icon
         setIcon(normalIcon);
@@ -69,16 +70,16 @@ public class APasswordTextBox extends JLabel {
     }
     Font font(float size){
 
-        try
-        {
-            File fontFile = new File("font/Gilroy-Medium.ttf");
-            Font  customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile).deriveFont(size);
-            return customFont;
+            try
+            {
+               File fontFile = new File("font/Gilroy-Medium.ttf");
+              Font  customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile).deriveFont(size);
+              return customFont;
 
-        }catch (IOException | FontFormatException e) {
-            e.printStackTrace();
-            return null;
-        }
+            }catch (IOException | FontFormatException e) {
+                e.printStackTrace();
+                return null;
+            }
 
     }
 }

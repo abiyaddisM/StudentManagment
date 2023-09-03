@@ -1,12 +1,14 @@
+package AClass;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class AImagePanel extends JPanel {
-    JPanel innerPanel=new JPanel();
-    JPanel mainPanel=new JPanel();
-    JLabel label=new JLabel();
-    AImagePanel(String file){
+    private JPanel innerPanel=new JPanel();
+   public JPanel mainPanel=new JPanel();
+   private JLabel label=new JLabel();
+    public AImagePanel(String file){
         ImageIcon icon=new ImageIcon(file);
         label.setIcon(icon);
 
@@ -31,11 +33,17 @@ public class AImagePanel extends JPanel {
         add(label);
 
     }
-    AImagePanel (String file,int top,int left,int bottom,int right){
+    public AImagePanel(String file, int top, int left, int bottom, int right){
         this(file);
-        mainPanel.setBorder(new EmptyBorder(top,left,bottom,right));
+      setBorder(new EmptyBorder(top,left,bottom,right));
     }
-    void addMain(Component component){
+   public void addMain(Component component){
         mainPanel.add(component);
+    }
+    public void setPanelOff(){
+        setVisible(false);
+    }
+    public void setPanelOn(){
+        setVisible(true);
     }
 }

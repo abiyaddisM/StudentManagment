@@ -1,3 +1,6 @@
+package Pages;
+import AClass.*;
+import src.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
@@ -32,8 +35,8 @@ public class HomePanel extends AImagePanel {
 
 
 
-    HomePanel(String file) {
-        super(file);
+    public HomePanel(String file) {
+        super(file,10,0,0,0);
         mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,11,10));
         statsPanel.mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,11,5));
         schoolYearPanel.mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,6,9));

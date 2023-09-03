@@ -1,7 +1,8 @@
+package AClass;
+
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public class ACheckBox extends AButton {
     Boolean state=false;
@@ -10,7 +11,7 @@ public class ACheckBox extends AButton {
         super("art/loginPage/comp/userAndPass/check/normal.png","art/loginPage/comp/userAndPass/check/nHover.png","art/loginPage/comp/userAndPass/check/pNormal.png");
         hoverPressIcon.setImage(new ImageIcon("art/loginPage/comp/userAndPass/check/pHover.png").getImage());
     }
-    ACheckBox(int top,int left,int bottom,int right){
+    public ACheckBox(int top, int left, int bottom, int right){
         super("art/loginPage/comp/userAndPass/check/normal.png","art/loginPage/comp/userAndPass/check/nHover.png","art/loginPage/comp/userAndPass/check/pNormal.png",top,left,bottom,right);
         hoverPressIcon.setImage(new ImageIcon("art/loginPage/comp/userAndPass/check/pHover.png").getImage());
 

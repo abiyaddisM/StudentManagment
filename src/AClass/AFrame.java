@@ -1,3 +1,5 @@
+package AClass;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -18,7 +20,7 @@ public class AFrame extends JPanel{
     {
         setBackground(new Color(0x1B1E2A));
         setBorder(new EmptyBorder(15,400,0,400));
-        setLayout(new FlowLayout(FlowLayout.CENTER,0,22));
+        setLayout(new FlowLayout(FlowLayout.CENTER,0,11));
 
 
     }
