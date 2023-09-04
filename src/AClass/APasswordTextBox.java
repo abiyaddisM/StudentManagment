@@ -95,7 +95,7 @@ public class APasswordTextBox extends JLabel {
 
         try
         {
-            File fontFile = new File("font/Gilroy-Medium.ttf");
+            File fontFile = new File("font/inter/Inter-Regular.ttf");
             Font  customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile).deriveFont(size);
             return customFont;
 

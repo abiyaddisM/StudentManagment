@@ -72,7 +72,7 @@ public class ATableRow extends AImagePanel {
 
         try
         {
-            File fontFile = new File("font/Gilroy-Medium.ttf");
+            File fontFile = new File("font/inter/Inter-Regular.ttf");
             Font  customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile).deriveFont(size);
             return customFont;
 
@@ -91,7 +91,7 @@ ALabel(int width){
     setBackground(new Color(0));
     setOpaque(false);
     setLayout(new FlowLayout(FlowLayout.LEFT,0,0));
-    setPreferredSize(new Dimension(width,15));
+    setPreferredSize(new Dimension(width,18));
 
 
     label.setBackground(new Color(0x3EC4E8));
