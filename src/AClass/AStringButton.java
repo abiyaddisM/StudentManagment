@@ -42,6 +42,11 @@ public class AStringButton extends JLabel {
             public void mouseReleased(MouseEvent e) {
                 setForeground(hoverColor);
             }
+            public void mouseExited(MouseEvent e) {
+
+                setForeground(normalColor);
+
+            }
         });
 
         addMouseMotionListener(new MouseMotionAdapter() {
@@ -55,7 +60,6 @@ public class AStringButton extends JLabel {
             @Override
             public void mouseMoved(MouseEvent e) {
                 if (!contains(e.getPoint())) {
-                    setForeground(normalColor);
                 }
             }
         });

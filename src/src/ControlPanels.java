@@ -5,13 +5,13 @@ import java.awt.*;
 public class ControlPanels {
     private static Component login, signUp, top,home, course, manage, settings;
     public ControlPanels(Component login, Component signUp, Component top,Component home, Component settings, Component manage, Component course) {
-        this.login = login;
-        this.signUp = signUp;
-        this.top = top;
-        this.home=home;
-        this.settings = settings;
-        this.manage = manage;
-        this.course = course;
+        ControlPanels.login = login;
+        ControlPanels.signUp = signUp;
+        ControlPanels.top = top;
+        ControlPanels.home =home;
+        ControlPanels.settings = settings;
+        ControlPanels.manage = manage;
+        ControlPanels.course = course;
     }
     public ControlPanels(){
         this(new JLabel(),new JLabel(),new JLabel(),new JLabel(),new JLabel(),new JLabel(),new JLabel());

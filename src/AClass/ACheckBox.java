@@ -8,12 +8,12 @@ public class ACheckBox extends AButton {
     Boolean state=false;
     ImageIcon hoverPressIcon=new ImageIcon();
     ACheckBox(){
-        super("art/loginPage/comp/userAndPass/check/normal.png","art/loginPage/comp/userAndPass/check/nHover.png","art/loginPage/comp/userAndPass/check/pNormal.png");
-        hoverPressIcon.setImage(new ImageIcon("art/loginPage/comp/userAndPass/check/pHover.png").getImage());
+        super("art/loginPage/comp/userAndPass/check/normalN.png","art/loginPage/comp/userAndPass/check/hoverN.png","art/loginPage/comp/userAndPass/check/normalC1.png");
+        hoverPressIcon.setImage(new ImageIcon("art/loginPage/comp/userAndPass/check/hoverC.png").getImage());
     }
     public ACheckBox(int top, int left, int bottom, int right){
-        super("art/loginPage/comp/userAndPass/check/normal.png","art/loginPage/comp/userAndPass/check/nHover.png","art/loginPage/comp/userAndPass/check/pNormal.png",top,left,bottom,right);
-        hoverPressIcon.setImage(new ImageIcon("art/loginPage/comp/userAndPass/check/pHover.png").getImage());
+        super("art/loginPage/comp/userAndPass/check/normalN.png","art/loginPage/comp/userAndPass/check/hoverN.png","art/loginPage/comp/userAndPass/check/normalC1.png",top,left,bottom,right);
+        hoverPressIcon.setImage(new ImageIcon("art/loginPage/comp/userAndPass/check/hoverC.png").getImage());
 
     }
     @Override
@@ -47,6 +47,14 @@ public class ACheckBox extends AButton {
                     }
                 });
             }
+            public void mouseExited(MouseEvent e) {
+                if (state){
+                    label.setIcon(pressIcon);
+                }else {
+                    label.setIcon(normalIcon);
+                }
+            }
+
         });
         label.addMouseMotionListener(new MouseAdapter() {
             @Override
@@ -58,18 +66,7 @@ public class ACheckBox extends AButton {
                 }
             }
         });
-        AFrame.frame.addMouseMotionListener(new MouseAdapter() {
-            @Override
-            public void mouseMoved(MouseEvent e) {
-                if (!contains(e.getPoint())) {
-                    if (state){
-                        label.setIcon(pressIcon);
-                    }else {
-                        label.setIcon(normalIcon);
-                    }
-                }
-            }
-        });
+
     }
     boolean getState(){
         return state;
