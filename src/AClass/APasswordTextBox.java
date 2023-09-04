@@ -9,10 +9,12 @@ import java.io.IOException;
 
 public class APasswordTextBox extends JLabel {
 
-    protected ImageIcon normalIcon = new ImageIcon("art/loginPage/comp/text.png");
-    protected ImageIcon pressIcon = new ImageIcon("art/loginPage/comp/text1.png");
+    protected ImageIcon normalIcon = new ImageIcon("art/loginPage/comp/normalT.png");
+    protected ImageIcon pressIcon = new ImageIcon("art/loginPage/comp/pressT.png");
 
     public JPasswordField textLabel = new JPasswordField();
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+
     boolean state = false;
 
     public APasswordTextBox() {
@@ -28,7 +30,7 @@ public class APasswordTextBox extends JLabel {
         textLabel.setBorder(null);
         textLabel.setOpaque(false);
         textLabel.setFont(font(15));
-        textLabel.setBorder(new EmptyBorder(0, 26, 0, 0));
+        textLabel.setBorder(new EmptyBorder(0, 11, 0, 0));
         textLabel.setEditable(true);
         textLabel.setCaretColor(new Color(0x3EC4E8));
         textLabel.setForeground(new Color(0xB5E9F8));
@@ -42,6 +44,7 @@ public class APasswordTextBox extends JLabel {
         textLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
                 if (state) {
                     state = false;
                     setIcon(normalIcon);
@@ -58,7 +61,26 @@ public class APasswordTextBox extends JLabel {
                 // Request focus for the textLabel after clicking
                 textLabel.requestFocus();
             }
+
         });
+        {
+            toolkit.addAWTEventListener(event -> {
+                if (event instanceof MouseEvent) {
+                    MouseEvent mouseEvent = (MouseEvent) event;
+                    if(mouseEvent.getButton()==1){
+                        if(!mouseEvent.getPoint().equals(textLabel.getMousePosition())){
+                            state = false;
+                            setIcon(normalIcon);
+                            textLabel.setEditable(false);
+                        }
+
+                    }
+
+
+                }
+            }, AWTEvent.MOUSE_EVENT_MASK);
+        }
+
         AFrame.frame.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
