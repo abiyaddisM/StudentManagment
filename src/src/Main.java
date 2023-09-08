@@ -3,8 +3,12 @@ import Pages.*;
 import AClass.AFrame;
 import Pages.*;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class Main {
     public static void main(String[] args) {
+
 
         LoginPanel loginPanel=new LoginPanel("art/loginPage/background/background.png");
         SignUpPanel signUpPanel=new SignUpPanel("art/signUp/static/background/background.png");

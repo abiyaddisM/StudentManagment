@@ -24,7 +24,7 @@ public class TopPanel extends AImagePanel {
 
 
     public TopPanel(String file) {
-        super(file);
+        super(file,10,0,0,0);
         mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,34,0));
         mainPanel.setBorder(new EmptyBorder(7,0,12,0));
         addPanel();

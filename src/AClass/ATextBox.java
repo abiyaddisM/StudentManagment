@@ -13,7 +13,6 @@ public class ATextBox extends JLabel {
     protected ImageIcon pressIcon = new ImageIcon("art/loginPage/comp/pressT.png");
 
     public JTextField textLabel = new JTextField();
-    Toolkit toolkit = Toolkit.getDefaultToolkit();
 
     boolean state = false;
 
@@ -26,10 +25,9 @@ public class ATextBox extends JLabel {
         // Set up the text label (initially hidden)
         textLabel.setHorizontalAlignment(JLabel.LEFT);
         textLabel.setForeground(Color.WHITE); // Set text color
-        textLabel.setBorder(null);
         textLabel.setOpaque(false);
         textLabel.setFont(font(15));
-        textLabel.setBorder(new EmptyBorder(0, 11, 0, 0));
+        textLabel.setBorder(new EmptyBorder(0, 11, 0, 11));
         textLabel.setEditable(true);
         textLabel.setCaretColor(new Color(0x3EC4E8));
         textLabel.setForeground(new Color(0xB5E9F8));
@@ -44,9 +42,9 @@ public class ATextBox extends JLabel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (state) {
-                    state = false;
+                /*    state = false;
                     setIcon(normalIcon);
-                    textLabel.setEditable(false);
+                    textLabel.setEditable(false);*/
 
                 } else {
                     state = true;
@@ -70,21 +68,26 @@ public class ATextBox extends JLabel {
         });
 
     }
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
     {
         toolkit.addAWTEventListener(event -> {
             if (event instanceof MouseEvent) {
                 MouseEvent mouseEvent = (MouseEvent) event;
-                if(mouseEvent.getButton()==1){
+                if(mouseEvent.getButton()==MouseEvent.BUTTON1){
                     if(!mouseEvent.getPoint().equals(textLabel.getMousePosition())){
                         state = false;
                         setIcon(normalIcon);
                         textLabel.setEditable(false);
                     }
-
+                    if(!textLabel.isVisible()){
+                        System.out.println("i can see");
+                    }
                 }
 
 
+
             }
+
         }, AWTEvent.MOUSE_EVENT_MASK);
     }
     Font font(float size){
@@ -101,6 +104,10 @@ public class ATextBox extends JLabel {
             }
 
     }
+
+
+
+
 }
 
 

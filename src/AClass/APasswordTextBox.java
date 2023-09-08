@@ -46,9 +46,9 @@ public class APasswordTextBox extends JLabel {
             public void mouseClicked(MouseEvent e) {
 
                 if (state) {
-                    state = false;
+                  /*  state = false;
                     setIcon(normalIcon);
-                    textLabel.setEditable(false);
+                    textLabel.setEditable(false);*/
 
                 } else {
                     state = true;

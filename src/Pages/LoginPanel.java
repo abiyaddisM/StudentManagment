@@ -30,7 +30,7 @@ public class LoginPanel extends AImagePanel {
 
 
     public LoginPanel(String file) {
-        super(file);
+        super(file,40,0,0,0);
         addToPanel();
         addLoginbuttonAction();
         addSignUpButtonAction();

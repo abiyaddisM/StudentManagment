@@ -4,8 +4,6 @@ import src.RowInfoHolder;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class ManagePanel extends JPanel {
@@ -21,9 +19,9 @@ public class ManagePanel extends JPanel {
     }
 
     static ManageOptionPanel manageOptionPanel=new ManageOptionPanel();
-    static ListPanel studentListPanel=new ListPanel("art\\managmentsPage\\lists\\static\\background\\studentBackground.png",studentInfoHolders);
-    static ListPanel teacherListPanel=new ListPanel("art\\managmentsPage\\lists\\static\\background\\teacherBackground.png",teacherInfoHolders);
-    static ListPanel staffListPanel=new ListPanel("art\\managmentsPage\\lists\\static\\background\\staffBackground.png",staffInfoHolders);
+    static ManageListPanel studentListPanel=new ManageListPanel("art\\managmentsPage\\lists\\static\\background\\studentBackground.png",studentInfoHolders);
+    static ManageListPanel teacherListPanel=new ManageListPanel("art\\managmentsPage\\lists\\static\\background\\teacherBackground.png",teacherInfoHolders);
+    static ManageListPanel staffListPanel=new ManageListPanel("art\\managmentsPage\\lists\\static\\background\\staffBackground.png",staffInfoHolders);
 
 
     public ManagePanel(){

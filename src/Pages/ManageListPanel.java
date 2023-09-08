@@ -3,31 +3,39 @@ package Pages;
 import AClass.*;
 import src.RowInfoHolder;
 
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.util.ArrayList;
 
-public class ListPanel extends AImagePanel {
+public class ManageListPanel extends AImagePanel {
 
     private  int rowIdex=0;
     private static int size=20;
     private AButton backButton=new AButton("art\\managmentsPage\\lists\\animated\\backButton\\normal.png","art\\managmentsPage\\lists\\animated\\backButton\\hover.png",
             "art\\managmentsPage\\lists\\animated\\backButton\\press.png",0,0,0,779);
     private AImagePanel holderPanel=new AImagePanel("art\\managmentsPage\\lists\\static\\background\\holderBackground.png",81,0,0,0);
+    private JPanel panel=new JPanel();
+
 
     ArrayList<ATableRow> tableRows = new ArrayList<ATableRow>();
 
-    public ListPanel(String file, ArrayList<RowInfoHolder> infoHolder){
+    public ManageListPanel(String file, ArrayList<RowInfoHolder> infoHolder){
         super(file);
+        panel.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
+        panel.setOpaque(false);
         setRowPlug(infoHolder);
         addPanels();
         backToOptionPanel();
         addRows();
         scrollFunction();
+        deleteRow();
     }
+
     void addPanels(){
         addMain(backButton);
         addMain(holderPanel);
@@ -47,9 +55,11 @@ public class ListPanel extends AImagePanel {
     }
     void addRows(){
         holderPanel.mainPanel.setBorder(new EmptyBorder(5,0,0,0));
+        holderPanel.mainPanel.setLayout(new BorderLayout());
+        holderPanel.addMain(panel);
         for (Integer i = 0; i < tableRows.size(); i++) {
             ATableRow tableRow=tableRows.get(i);
-            holderPanel.addMain(tableRow);
+            panel.add(tableRow);
         }
 
     }
@@ -63,19 +73,22 @@ public class ListPanel extends AImagePanel {
 
 
             textBox.addMouseWheelListener(new MouseWheelListener() {
+                int speed=25;
                 @Override
                 public void mouseWheelMoved(MouseWheelEvent e) {
                     int rotation = e.getWheelRotation();
                     if (rotation > 0) {
-                        if (rowIdex < tableRows.size() - 4) {
-                            tableRows.get((int) rowIdex).setVisible(false);
-                            rowIdex++;
+
+                            panel.setBorder(new EmptyBorder(rowIdex,0,0,0));
+//                            tableRows.get((int) rowIdex).setVisible(false);
+                            rowIdex-=speed;
                             System.out.println(rowIdex);
-                        }
+
                     } else {
-                        if (rowIdex >= 1) {
-                            rowIdex--;
-                            tableRows.get(rowIdex).setVisible(true);
+
+                        if(rowIdex<0) {
+                            rowIdex += speed;
+                            panel.setBorder(new EmptyBorder(rowIdex, 0, 0, 0));
                             System.out.println(rowIdex);
                         }
                     }
@@ -83,12 +96,30 @@ public class ListPanel extends AImagePanel {
             });
         }
     }
+    int I;
+    void deleteRow(){
+        for (int i = 0; i < tableRows.size(); i++) {
+           I = i;
+            ATableRow row = tableRows.get(i);
+
+            row.deleteButton.label.addMouseListener(new MouseAdapter() {
+               @Override
+               public void mouseClicked(MouseEvent e) {
+
+                 row.setPanelOff();
+                   System.out.println(I);
+
+               }
+           });
+        }
+    }
     void backToOptionPanel(){
         backButton.label.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 ManagePanel.backToOptionPanel();
-
+                rowIdex=0;
+                panel.setBorder(new EmptyBorder(0,0,0,0));
             }
         });
     }

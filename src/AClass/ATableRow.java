@@ -17,7 +17,7 @@ public class ATableRow extends AImagePanel {
     private ALabel placeText=new ALabel(140);
     private AButton editButton=new AButton("art\\managmentsPage\\lists\\animated\\editButton\\normal.png","art\\managmentsPage\\lists\\animated\\editButton\\hover.png",
             "art\\managmentsPage\\lists\\animated\\editButton\\press.png",0,40,0,0);
-    private AButton deleteButton=new AButton("art\\managmentsPage\\lists\\animated\\deleteButton\\normal.png","art\\managmentsPage\\lists\\animated\\deleteButton\\hover.png",
+    public AButton deleteButton=new AButton("art\\managmentsPage\\lists\\animated\\deleteButton\\normal.png","art\\managmentsPage\\lists\\animated\\deleteButton\\hover.png",
             "art\\managmentsPage\\lists\\animated\\deleteButton\\press.png",0,50,0,0);
 
 

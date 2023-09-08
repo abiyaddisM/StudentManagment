@@ -17,7 +17,7 @@ public class SignUpPanel extends AImagePanel {
     private AImageLabel haveAnAccImage=new AImageLabel("art/signUp/static/writing/haveAnAcc.png",0,0,2,0);
     private AStringButton loginButton=new AStringButton("Login");
     public SignUpPanel(String file) {
-        super(file);
+        super(file,40,0,0,0);
         setVisible(false);
         addToPanel();
         addLoginButtonAction();
