@@ -19,6 +19,8 @@ public class ManagePanel extends JPanel {
     }
 
     static ManageOptionPanel manageOptionPanel=new ManageOptionPanel();
+
+    static ManageRegisterPanel studentManageRegisterPanel=new ManageRegisterPanel("art\\managmentsPage\\register\\static\\background\\background3.png");
     static ManageListPanel studentListPanel=new ManageListPanel("art\\managmentsPage\\lists\\static\\background\\studentBackground.png",studentInfoHolders);
     static ManageListPanel teacherListPanel=new ManageListPanel("art\\managmentsPage\\lists\\static\\background\\teacherBackground.png",teacherInfoHolders);
     static ManageListPanel staffListPanel=new ManageListPanel("art\\managmentsPage\\lists\\static\\background\\staffBackground.png",staffInfoHolders);
@@ -30,11 +32,13 @@ public class ManagePanel extends JPanel {
         setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
         initilizeVisibility();
         add(manageOptionPanel);
+        add(studentManageRegisterPanel);
         add(studentListPanel);
         add(teacherListPanel);
         add(staffListPanel);
     }
     void initilizeVisibility(){
+        studentManageRegisterPanel.setPanelOff();
         studentListPanel.setPanelOff();
         teacherListPanel.setPanelOff();
         staffListPanel.setPanelOff();
@@ -51,11 +55,16 @@ public class ManagePanel extends JPanel {
         staffListPanel.setPanelOn();
         manageOptionPanel.setPanelOff();
     }
+    static void viewAddStudent(){
+        studentManageRegisterPanel.setPanelOn();
+        manageOptionPanel.setPanelOff();
+    }
     static void backToOptionPanel(){
         manageOptionPanel.setPanelOn();
         studentListPanel.setPanelOff();
         teacherListPanel.setPanelOff();
         staffListPanel.setPanelOff();
+        studentManageRegisterPanel.setPanelOff();
     }
     static void getStudentInfoFromDatabase(){
         //Connect the sql here and put the data of students here.

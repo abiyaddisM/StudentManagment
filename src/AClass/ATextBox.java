@@ -41,16 +41,10 @@ public class ATextBox extends JLabel {
         textLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (state) {
-                /*    state = false;
-                    setIcon(normalIcon);
-                    textLabel.setEditable(false);*/
-
-                } else {
+                if (!state) {
                     state = true;
                     setIcon(pressIcon);
                     textLabel.setEditable(true);
-
 
                 }
 
@@ -67,6 +61,12 @@ public class ATextBox extends JLabel {
             }
         });
 
+    }
+    public ATextBox(String normalUrl, String pressUrl){
+        this();
+        normalIcon=new ImageIcon(normalUrl);
+        pressIcon=new ImageIcon(pressUrl);
+        setIcon(normalIcon);
     }
     Toolkit toolkit = Toolkit.getDefaultToolkit();
     {

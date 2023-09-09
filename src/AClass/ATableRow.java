@@ -33,24 +33,24 @@ public class ATableRow extends AImagePanel {
 
     private void initializeUI(RowInfoHolder infoHolder) {
         idText.label.setFont(font(15));
-        idText.label.setForeground(new Color(0xFF8C86C0, true));
+        idText.label.setForeground(new Color(0xFF799CD1, true));
         idText.label.setBorder(new EmptyBorder(0,20,0,0));
         idText.setText(infoHolder.id);
 
         nameText.label.setFont(font(15));
-        nameText.label.setForeground(new Color(0xFF8C86C0, true));
+        nameText.label.setForeground(new Color(0xFF799CD1, true));
         nameText.setText(infoHolder.name);
 
         yearText.label.setFont(font(15));
-        yearText.label.setForeground(new Color(0xFF8C86C0, true));
+        yearText.label.setForeground(new Color(0xFF799CD1, true));
         yearText.setText(infoHolder.thirdColumn);
 
         genderText.label.setFont(font(15));
-        genderText.label.setForeground(new Color(0xFF8C86C0, true));
+        genderText.label.setForeground(new Color(0xFF799CD1, true));
         genderText.setText(infoHolder.gender);
 
         placeText.label.setFont(font(15));
-        placeText.label.setForeground(new Color(0xFF8C86C0, true));
+        placeText.label.setForeground(new Color(0xFF799CD1, true));
         placeText.setText(infoHolder.placeHolder);
 
 

@@ -5,6 +5,7 @@ import AClass.AImagePanel;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class ManageOptionPanel extends AImagePanel {
 
@@ -49,24 +50,25 @@ public class ManageOptionPanel extends AImagePanel {
 
     }
     void viewList(){
-        studentViewButton.label.addMouseListener(new MouseAdapter() {
+        MouseListener mouseListener=new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                ManagePanel.viewStudentList();
+                if(e.getSource()==studentViewButton.label){
+                    ManagePanel.viewStudentList();
+                }else if(e.getSource()==teacherViewButton.label){
+                    ManagePanel.viewTeacherList();
+                } else if (e.getSource()==staffViewButton.label) {
+                    ManagePanel.viewStaffList();
+                } else if (e.getSource()==studentAddButton.label) {
+                    ManagePanel.viewAddStudent();
+                    System.out.println("hello");
+                }
             }
-        });
-        teacherViewButton.label.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                ManagePanel.viewTeacherList();
-            }
-        });
-        staffViewButton.label.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                ManagePanel.viewStaffList();
-            }
-        });
+        };
+        studentViewButton.label.addMouseListener(mouseListener);
+        teacherViewButton.label.addMouseListener(mouseListener);
+        staffViewButton.label.addMouseListener(mouseListener);
+        studentAddButton.label.addMouseListener(mouseListener);
     }
 
 }
