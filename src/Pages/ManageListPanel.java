@@ -53,7 +53,7 @@ public class ManageListPanel extends AImagePanel {
 
     }
     void addRows(){
-        holderPanel.mainPanel.setBorder(new EmptyBorder(5,0,0,0));
+        holderPanel.mainPanel.setBorder(new EmptyBorder(-1,0,0,0));
         holderPanel.mainPanel.setLayout(new BorderLayout());
         holderPanel.addMain(panel);
         for (Integer i = 0; i < tableRows.size(); i++) {

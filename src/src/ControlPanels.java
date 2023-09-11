@@ -1,8 +1,19 @@
 package src;
+import Pages.ManagePanel;
+import Pages.TopPanel;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class ControlPanels {
+    static int tabsDelay=5;
+    public static int delayInMilliSeconds = 150;
+    public static ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+
+
     private static Component login, signUp, top,home, course, manage, settings;
     public ControlPanels(Component login, Component signUp, Component top,Component home, Component settings, Component manage, Component course) {
         ControlPanels.login = login;
@@ -63,33 +74,48 @@ public class ControlPanels {
     }
 
     public static void showSignUp() {
-        signUp.setVisible(true);
-        hideAllExcept(signUp);
+        ControlPanels.executor.schedule(() -> {
+            signUp.setVisible(true);
+            hideAllExcept(signUp);
+        }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
     }
 
     public static void showLogin() {
-        login.setVisible(true);
-        hideAllExcept(login);
+        ControlPanels.executor.schedule(() -> {
+            login.setVisible(true);
+            hideAllExcept(login);
+        }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
     }
 
     public static void showHome() {
-        top.setVisible(true);
-        home.setVisible(true);
-        hideAllExcept(top,home);
+        ControlPanels.executor.schedule(() -> {
+            top.setVisible(true);
+            home.setVisible(true);
+            hideAllExcept(top,home);
+        }, ControlPanels.delayInMilliSeconds+tabsDelay, TimeUnit.MILLISECONDS);
     }
 
     public static void showSettings() {
-        settings.setVisible(true);
-        hideAllExcept(top,settings);
+        ControlPanels.executor.schedule(() -> {
+            settings.setVisible(true);
+            hideAllExcept(top,settings);
+        }, ControlPanels.delayInMilliSeconds+tabsDelay, TimeUnit.MILLISECONDS);
+
     }
 
-    public static void showManage() {
-        manage.setVisible(true);
-        hideAllExcept(top,manage);
+    public static void showManage(int time) {
+        ControlPanels.executor.schedule(() -> {
+            manage.setVisible(true);
+            hideAllExcept(top,manage);
+        }, ControlPanels.delayInMilliSeconds+tabsDelay-time, TimeUnit.MILLISECONDS);
+
     }
 
     public static void showCourse() {
-        course.setVisible(true);
-        hideAllExcept(top,course);
+        ControlPanels.executor.schedule(() -> {
+            course.setVisible(true);
+            hideAllExcept(top,course);
+        }, ControlPanels.delayInMilliSeconds+tabsDelay, TimeUnit.MILLISECONDS);
+
     }
 }

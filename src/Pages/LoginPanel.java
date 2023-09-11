@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 public class LoginPanel extends AImagePanel {
     static boolean state=true;
@@ -67,7 +68,9 @@ public class LoginPanel extends AImagePanel {
 
                 if(nameAndPassword.containsKey(username)){
                     if (nameAndPassword.get(username).equals(password)){
-                        ControlPanels.showHome();
+                        ControlPanels.executor.schedule(() -> {
+                            ControlPanels.showHome();
+                        }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
                     }else {
                         System.out.println("Wrong password");
                     }

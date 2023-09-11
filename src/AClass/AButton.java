@@ -6,6 +6,9 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class AButton extends JPanel {
 
@@ -33,37 +36,42 @@ public class AButton extends JPanel {
         setBorder(new EmptyBorder(top,left,bottom,right));
     }
 
-
+    boolean isMouseDown = false;
     void setAnimation() {
         label.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                label.setIcon(pressIcon);  // Set the icon to pressed state
+                label.setIcon(pressIcon);
+                isMouseDown = true;// Set
+            }
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                label.setIcon(hoverIcon);
+
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                if(label.contains(e.getPoint())){
-                    label.setIcon(hoverIcon);
-                }else{
-                    label.setIcon(normalIcon);
+                isMouseDown = false;
+                label.setIcon(normalIcon);
 
-                }
             }
             @Override
             public void mouseExited(MouseEvent e) {
 
+                if (!isMouseDown){
                     label.setIcon(normalIcon);
+                }
 
             }
-        });
-
-        label.addMouseMotionListener(new MouseMotionAdapter() {
-            @Override
-            public void mouseMoved(MouseEvent e) {
+            public void mouseEntered(MouseEvent e) {
                 label.setIcon(hoverIcon);
+
             }
         });
+
+
 
 
     }

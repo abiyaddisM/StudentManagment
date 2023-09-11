@@ -3,6 +3,12 @@ import AClass.*;
 import src.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class HomePanel extends AImagePanel {
 
@@ -45,6 +51,7 @@ public class HomePanel extends AImagePanel {
         addAboutUsPanel();
         addStatsPanel();
         addSchoolYearPanel();
+        addButtonAction();
         setVisible(false);
     }
     void addPanel(){
@@ -70,5 +77,37 @@ public class HomePanel extends AImagePanel {
         schoolYearPanel.addMain(schoolYearTwoButton);
         schoolYearPanel.addMain(schoolYearThreeButton);
         schoolYearPanel.addMain(schoolYearFourButton);
+    }
+    void addButtonAction(){
+        MouseListener addButtonAction=new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getSource()==totalStudentButton.label){
+                    ControlPanels.executor.schedule(() -> {
+                        TopPanel.hideAllExcept(TopPanel.manageTab);
+                        ControlPanels.showManage(200);
+                       ManagePanel.hideAllExcept(ManagePanel.studentManageRegisterPanel);
+                    }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
+
+
+                } else if (e.getSource()==startButton.label) {
+                    ControlPanels.executor.schedule(() -> {
+                        ControlPanels.showManage(200);
+                        TopPanel.hideAllExcept(TopPanel.manageTab);
+                        ManagePanel.hideAllExcept(ManagePanel.manageOptionPanel);
+                    }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
+                } else if (e.getSource()==totalTeacherButton.label) {
+                    ControlPanels.executor.schedule(() -> {
+                        ControlPanels.showManage(200);
+                        TopPanel.hideAllExcept(TopPanel.manageTab);
+                        ManagePanel.hideAllExcept(ManagePanel.teacherRegisterPanel);
+                    }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
+
+                }
+            }
+        };
+        startButton.label.addMouseListener(addButtonAction);
+        totalStudentButton.label.addMouseListener(addButtonAction);
+        totalTeacherButton.label.addMouseListener(addButtonAction);
     }
 }

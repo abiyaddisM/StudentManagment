@@ -13,16 +13,19 @@ public class AComboBox extends JPanel {
     AButtonText listButton[];
     AImagePanel listPanel;
     JWindow window=new JWindow();
-    String listText[];
-    public AComboBox(String[] listText){
-        this.listText=listText;
-        listButton=new AButtonText[listText.length];
+    String []listText;
+    public AComboBox(){
+
         setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
         setOpaque(false);
     }
-    AComboBox(String []listText,int top,int left,int bottom,int right){
-        this(listText);
+    AComboBox(int top,int left,int bottom,int right){
+        this();
         setBorder(new EmptyBorder(top,left,bottom,right));
+    }
+    public void  addString(String[] listText){
+        this.listText=listText;
+        listButton=new AButtonText[listText.length];
     }
 
     public void setComboBox(String normalNUrl, String hoverNUrl, String normalPUrl, String hoverPUrl){

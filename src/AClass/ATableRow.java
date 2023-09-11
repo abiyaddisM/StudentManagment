@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class ATableRow extends AImagePanel {
     private ALabel idText=new ALabel(125);
-    private ALabel nameText=new ALabel(167);
-    private ALabel yearText=new ALabel(117);
+    private ALabel nameText=new ALabel(164);
+    private ALabel yearText=new ALabel(119);
     private ALabel genderText=new ALabel(95);
     private ALabel placeText=new ALabel(140);
     private AButton editButton=new AButton("art\\managmentsPage\\lists\\animated\\editButton\\normal.png","art\\managmentsPage\\lists\\animated\\editButton\\hover.png",
@@ -23,8 +23,9 @@ public class ATableRow extends AImagePanel {
 
 
     public ATableRow(RowInfoHolder infoHolder) {
-        super("art\\managmentsPage\\lists\\static\\background\\rowBackground1.png");
-        mainPanel.setBorder(new EmptyBorder(14,0,0,0));
+        super("art\\managmentsPage\\lists\\static\\background\\rowBackground2.png",0,0,3,0);
+
+        mainPanel.setBorder(new EmptyBorder(3,0,0,0));
         mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         initializeUI(infoHolder);
         addTexts();
@@ -32,25 +33,25 @@ public class ATableRow extends AImagePanel {
     }
 
     private void initializeUI(RowInfoHolder infoHolder) {
-        idText.label.setFont(font(15));
-        idText.label.setForeground(new Color(0xFF799CD1, true));
+        idText.label.setFont(font(13));
+        idText.label.setForeground(new Color(0xFFCFD5DE, true));
         idText.label.setBorder(new EmptyBorder(0,20,0,0));
         idText.setText(infoHolder.id);
 
-        nameText.label.setFont(font(15));
-        nameText.label.setForeground(new Color(0xFF799CD1, true));
+        nameText.label.setFont(font(13));
+        nameText.label.setForeground(new Color(0xFFCFD5DE, true));
         nameText.setText(infoHolder.name);
 
-        yearText.label.setFont(font(15));
-        yearText.label.setForeground(new Color(0xFF799CD1, true));
+        yearText.label.setFont(font(13));
+        yearText.label.setForeground(new Color(0xFFCFD5DE, true));
         yearText.setText(infoHolder.thirdColumn);
 
-        genderText.label.setFont(font(15));
-        genderText.label.setForeground(new Color(0xFF799CD1, true));
+        genderText.label.setFont(font(13));
+        genderText.label.setForeground(new Color(0xFFCFD5DE, true));
         genderText.setText(infoHolder.gender);
 
-        placeText.label.setFont(font(15));
-        placeText.label.setForeground(new Color(0xFF799CD1, true));
+        placeText.label.setFont(font(13));
+        placeText.label.setForeground(new Color(0xFFCFD5DE, true));
         placeText.setText(infoHolder.placeHolder);
 
 
