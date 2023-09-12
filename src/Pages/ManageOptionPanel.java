@@ -63,6 +63,8 @@ public class ManageOptionPanel extends AImagePanel {
                     ManagePanel.hideAllExcept(ManagePanel.studentManageRegisterPanel);
                 } else if (e.getSource()==teacherAddButton.label) {
                     ManagePanel.hideAllExcept(ManagePanel.teacherRegisterPanel);
+                } else if (e.getSource()==staffAddButton.label) {
+                    ManagePanel.hideAllExcept(ManagePanel.staffRegisterPanel);
                 }
             }
         };
@@ -71,6 +73,7 @@ public class ManageOptionPanel extends AImagePanel {
         staffViewButton.label.addMouseListener(mouseListener);
         studentAddButton.label.addMouseListener(mouseListener);
         teacherAddButton.label.addMouseListener(mouseListener);
+        staffAddButton.label.addMouseListener(mouseListener);
     }
 
 }

@@ -1,6 +1,7 @@
-package Pages;
+package Pages.List;
 
 import AClass.*;
+import Pages.ManagePanel;
 import src.RowInfoHolder;
 
 import javax.swing.*;
@@ -12,7 +13,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.util.ArrayList;
 
-public class ManageListPanel extends AImagePanel {
+abstract public class ManageListPanel extends AImagePanel {
 
     private  int rowIdex=0;
     private static int size=20;
@@ -22,6 +23,7 @@ public class ManageListPanel extends AImagePanel {
 
 
     ArrayList<ATableRow> tableRows = new ArrayList<ATableRow>();
+    ArrayList<ATableRow> newRows = new ArrayList<ATableRow>();
 
     public ManageListPanel(String file, ArrayList<RowInfoHolder> infoHolder){
         super(file);
@@ -33,6 +35,7 @@ public class ManageListPanel extends AImagePanel {
         addRows();
         scrollFunction();
         deleteRow();
+        editInfo();
     }
 
     void addPanels(){
@@ -104,14 +107,14 @@ public class ManageListPanel extends AImagePanel {
             row.deleteButton.label.addMouseListener(new MouseAdapter() {
                @Override
                public void mouseClicked(MouseEvent e) {
-
-                 row.setPanelOff();
-                   System.out.println(I);
-
+                   row.setPanelOff();
                }
            });
         }
     }
+  abstract void editInfo();
+
+
     void backToOptionPanel(){
         backButton.label.addMouseListener(new MouseAdapter() {
             @Override
@@ -121,5 +124,13 @@ public class ManageListPanel extends AImagePanel {
                 panel.setBorder(new EmptyBorder(0,0,0,0));
             }
         });
+    }
+   public void addRow(RowInfoHolder infoHolder){
+        tableRows.add(new ATableRow(infoHolder));
+        panel.add(tableRows.get(tableRows.size()-1));
+       AFrame.frame.validate();
+       AFrame.frame.repaint();
+        deleteRow();
+        editInfo();
     }
 }

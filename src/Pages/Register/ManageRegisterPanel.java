@@ -2,6 +2,7 @@ package Pages.Register;
 
 import AClass.*;
 import Pages.ManagePanel;
+import src.RowInfoHolder;
 
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -16,12 +17,14 @@ abstract public class ManageRegisterPanel extends AImagePanel {
     String studentBatchList[];
     String genderList[];
 
+
+
     AButton exitButton=new AButton("art\\managmentsPage\\register\\animated\\exitButton\\normalE.png","art\\managmentsPage\\register\\animated\\exitButton\\hoverE.png","art\\managmentsPage\\register\\animated\\exitButton\\pressE.png",0,0,0,600);
     ATextBox firstNameTextBox=new ATextBox("art/managmentsPage/register/animated/textBox/normalR.png","art/managmentsPage/register/animated/textBox/pressR.png");
     ATextBox lastNameTextBox=new ATextBox("art/managmentsPage/register/animated/textBox/normalR.png","art/managmentsPage/register/animated/textBox/pressR.png");
     ATextBox emailTextBox=new ATextBox("art/managmentsPage/register/animated/textBox/normalR.png","art/managmentsPage/register/animated/textBox/pressR.png");
     ATextBox phoneNoTextBox=new ATextBox("art/managmentsPage/register/animated/textBox/normalR.png","art/managmentsPage/register/animated/textBox/pressR.png");
-    AImageLabel studentIdLabel=new AImageLabel("art\\managmentsPage\\register\\static\\studentID\\holder.png");
+    AImageLabel studentIdLabel=new AImageLabel("art\\managmentsPage\\register\\static\\studentID\\holder.png",12,"Regular");
     AButton refreshButton=new AButton("art\\managmentsPage\\register\\animated\\studentID\\normalR.png","art\\managmentsPage\\register\\animated\\studentID\\hoverR.png","art\\managmentsPage\\register\\animated\\studentID\\pressR.png");
 
     AButton clearButton=new AButton("art\\managmentsPage\\register\\animated\\saveAndClear\\normalC.png","art\\managmentsPage\\register\\animated\\saveAndClear\\hoverC.png","art\\managmentsPage\\register\\animated\\saveAndClear\\pressC.png");
@@ -91,7 +94,7 @@ abstract public class ManageRegisterPanel extends AImagePanel {
         genderList= new String[]{"Male","Female","None-Binary","Other"};
 
     }
-    {
+   public void setPlacement() {
         firstNameTextBox.setBorder(new EmptyBorder(142,60,0,0));
         lastNameTextBox.setBorder(new EmptyBorder(142,34,0,0));
         emailTextBox.setBorder(new EmptyBorder(52,60,0,0));
@@ -106,17 +109,46 @@ abstract public class ManageRegisterPanel extends AImagePanel {
         clearButton.setBorder(new EmptyBorder(54,257,0,0));
         saveButton.setBorder(new EmptyBorder(54,13,0,0));
     }
-    {
-
-
+    public void setInformation(RowInfoHolder infoHolder){
+        firstNameTextBox.textLabel.setText(infoHolder.firstName);
+        lastNameTextBox.textLabel.setText(infoHolder.lastName);
+        emailTextBox.textLabel.setText(infoHolder.email);
+        monthComboBox.setText(infoHolder.month);
+        dayComboBox.setText(infoHolder.day);
+        yearComboBox.setText(infoHolder.year);
+        phoneNoTextBox.textLabel.setText(infoHolder.phoneNo);
+        studentBatchComboBox.setText(infoHolder.department);
+        genderComboBox.setText(infoHolder.gender);
+        studentIdLabel.setText(infoHolder.id);
     }
-    void addButtonAction(){
-        exitButton.label.addMouseListener(new MouseAdapter() {
+    void clearAll(){
+        ATextBox box[]={firstNameTextBox,lastNameTextBox,emailTextBox,phoneNoTextBox,};
+        AComboBox box1[]={monthComboBox,dayComboBox,yearComboBox,studentBatchComboBox,genderComboBox};
+
+        for(ATextBox b: box){
+            b.resetText();
+        }
+        for(AComboBox b: box1){
+            b.resetText();
+        }
+    }
+     void addButtonAction(){
+        MouseAdapter action=new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                ManagePanel.backToOptionPanel();
+                if (e.getSource()==exitButton.label){
+                    clearAll();
+                    ManagePanel.backToOptionPanel();
+                } else if (e.getSource()==clearButton.label) {
+                   clearAll();
+                }
             }
-        });
+        };
+        exitButton.label.addMouseListener(action);
+        clearButton.label.addMouseListener(action);
+
     }
 
+
+    
 }

@@ -173,8 +173,15 @@ public class AComboBox extends JPanel {
             }, AWTEvent.MOUSE_EVENT_MASK);
         }
     }
-
-
+public void resetText(){
+        comboBox.setText("");
+}
+    public String getText(){
+        return comboBox.getText();
+    }
+    public void setText(String text){
+        comboBox.setText(text);
+    }
 
 }
 

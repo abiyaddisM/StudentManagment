@@ -1,8 +1,9 @@
 package Pages;
 
 import AClass.AImagePanel;
-import Pages.Register.StudentRegisterPanel;
-import Pages.Register.TeacherRegisterPanel;
+import Pages.List.ManageListPanel;
+import Pages.List.*;
+import Pages.Register.*;
 import src.RowInfoHolder;
 
 import javax.swing.*;
@@ -23,44 +24,58 @@ public class ManagePanel extends JPanel {
 
     static ManageOptionPanel manageOptionPanel=new ManageOptionPanel();
     static TeacherRegisterPanel teacherRegisterPanel=new TeacherRegisterPanel("art\\managmentsPage\\register\\static\\background\\teacherBackground1.png");
-
+    static StaffRegisterPanel staffRegisterPanel=new StaffRegisterPanel("art\\managmentsPage\\register\\static\\background\\staffBackground.png");
     static StudentRegisterPanel studentManageRegisterPanel=new StudentRegisterPanel("art\\managmentsPage\\register\\static\\background\\studentBackground1.png");
-    static ManageListPanel studentListPanel=new ManageListPanel("art\\managmentsPage\\lists\\static\\background\\studentBackground1.png",studentInfoHolders);
-    static ManageListPanel teacherListPanel=new ManageListPanel("art\\managmentsPage\\lists\\static\\background\\teacherBackground1.png",teacherInfoHolders);
-    static ManageListPanel staffListPanel=new ManageListPanel("art\\managmentsPage\\lists\\static\\background\\staffBackground1.png",staffInfoHolders);
+    static public StudentListPanel studentListPanel=new StudentListPanel("art\\managmentsPage\\lists\\static\\background\\studentBackground1.png",studentInfoHolders);
+    static public TeacherListPanel teacherListPanel=new TeacherListPanel("art\\managmentsPage\\lists\\static\\background\\teacherBackground1.png",teacherInfoHolders);
+    static public StaffListPanel staffListPanel=new StaffListPanel("art\\managmentsPage\\lists\\static\\background\\staffBackground1.png",staffInfoHolders);
 
+    static public EditStudentPanel editStudentPanel=new EditStudentPanel();
+    static public EditTeacherPanel editTeacherPanel=new EditTeacherPanel();
+    static public EditStaffPanel editStaffPanel=new EditStaffPanel();
 
     public ManagePanel(){
         setVisible(false);
         setOpaque(false);
         setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
-        initilizeVisibility();
+//        initilizeVisibility();
         add(manageOptionPanel);
         add(studentManageRegisterPanel);
         add(teacherRegisterPanel);
+        add(staffRegisterPanel);
         add(studentListPanel);
         add(teacherListPanel);
         add(staffListPanel);
+        add(editStudentPanel);
+        add(editTeacherPanel);
+        add(editStaffPanel);
     }
-    void initilizeVisibility(){
-        studentManageRegisterPanel.setPanelOff();
-        teacherListPanel.setPanelOff();
-        studentListPanel.setPanelOff();
-        teacherListPanel.setPanelOff();
-        staffListPanel.setPanelOff();
-
-    }
+//    void initilizeVisibility(){
+//        studentManageRegisterPanel.setPanelOff();
+//        staffRegisterPanel.setPanelOff();
+//        teacherRegisterPanel.setPanelOff();
+//        teacherListPanel.setPanelOff();
+//        studentListPanel.setPanelOff();
+//        teacherListPanel.setPanelOff();
+//        staffListPanel.setPanelOff();
+//
+//    }
 
     public static void backToOptionPanel(){
         manageOptionPanel.setPanelOn();
+        studentManageRegisterPanel.setPanelOff();
+        staffRegisterPanel.setPanelOff();
+        teacherRegisterPanel.setPanelOff();
+        teacherListPanel.setPanelOff();
         studentListPanel.setPanelOff();
         teacherListPanel.setPanelOff();
         staffListPanel.setPanelOff();
-        studentManageRegisterPanel.setPanelOff();
-        teacherRegisterPanel.setPanelOff();
+        editStudentPanel.setPanelOff();
+        editTeacherPanel.setPanelOff();
+        editStaffPanel.setPanelOff();
     }
     public static void hideAllExcept(AImagePanel panel) {
-        AImagePanel[] panels = {manageOptionPanel,studentListPanel,staffListPanel,teacherListPanel,studentManageRegisterPanel,teacherRegisterPanel};
+        AImagePanel[] panels = {manageOptionPanel,studentListPanel,staffListPanel,teacherListPanel,studentManageRegisterPanel,teacherRegisterPanel,staffRegisterPanel,editStudentPanel,editTeacherPanel,editStaffPanel};
         for (AImagePanel c : panels) {
             if (c != null && c != panel) {
                 c.setPanelOff();
@@ -72,21 +87,21 @@ public class ManagePanel extends JPanel {
     static void getStudentInfoFromDatabase(){
         //Connect the sql here and put the data of students here.
         for (int i = 0; i < 10; i++) {
-            studentInfoHolders.add(new RowInfoHolder("0Q"+i,"Abiy Addis","20","Male","Students"));
+            studentInfoHolders.add(new RowInfoHolder("0Q"+i,"Abiy","Addis","1997","April","2","Male","Students","abiy@gmail.com","0980633711"));
         }
 
     }
     static void getTeacherInfoFromDatabase(){
         //Connect the sql here and put the data of teachers here.
         for (int i = 0; i < 7; i++) {
-            teacherInfoHolders.add(new RowInfoHolder("P1"+i,"Kim John Hun","45","Female","Teachers"));
+            teacherInfoHolders.add(new RowInfoHolder("0Q"+i,"Abiy","Addis","1997","April","2","Male","Students","abiy@gmail.com","0980633711"));
         }
 
     }
     static void getStaffInfoFromDatabase(){
         //Connect the sql here and put the data of staffs here.
         for (int i = 0; i < 30; i++) {
-            staffInfoHolders.add(new RowInfoHolder("2H"+i,"Dr. Dre","65","Male","Staff"));
+            staffInfoHolders.add(new RowInfoHolder("0Q"+i,"Abiy","Addis","1997","April","2","Male","Students","abiy@gmail.com","0980633711"));
         }
 
     }

@@ -1,9 +1,18 @@
 package Pages.Register;
 
+import AClass.AFrame;
+import Pages.ManagePanel;
+import src.RowInfoHolder;
+
+import javax.swing.border.EmptyBorder;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class TeacherRegisterPanel extends ManageRegisterPanel{
     public TeacherRegisterPanel(String file) {
         super(file);
         initializeList();
+        setPlacement();
         initializeComboBox();
         addComponents();
     }
@@ -30,6 +39,23 @@ public class TeacherRegisterPanel extends ManageRegisterPanel{
     void initializeList(){
       super.initializeList();
         studentBatchList=new String[]{"Computer Science","Software Engineer","Political Science","Art"};
+    }
+    @Override
+    void addButtonAction(){
+        super.addButtonAction();
+        MouseAdapter action=new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getSource()==saveButton.label) {
+                    RowInfoHolder infoHolder=new RowInfoHolder(studentIdLabel.getText(),firstNameTextBox.getString(),lastNameTextBox.getString(),yearComboBox.getText(), monthComboBox.getText(),dayComboBox.getText(),genderComboBox.getText(),studentBatchComboBox.getText(),emailTextBox.getString(),phoneNoTextBox.getString());
+                    ManagePanel.teacherListPanel.addRow(infoHolder);
+                    ManagePanel.backToOptionPanel();
+                    clearAll();
+                }
+            }
+        };
+
+        saveButton.label.addMouseListener(action);
     }
 
 }

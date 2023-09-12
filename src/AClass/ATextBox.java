@@ -104,6 +104,12 @@ public class ATextBox extends JLabel {
             }
 
     }
+    public void resetText(){
+        textLabel.setText("");
+    }
+   public String getString(){
+        return textLabel.getText();
+    }
 
 
 

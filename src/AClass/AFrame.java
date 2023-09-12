@@ -7,10 +7,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class AFrame extends JPanel{
-    static JFrame frame=new JFrame();
+    static public JFrame frame=new JFrame();
 
     {
-
         frame.setBounds(400, 100, 1200, 800);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(new Color(0x1B1E2A));
@@ -21,8 +20,8 @@ public class AFrame extends JPanel{
 
     {
         setBackground(new Color(0x1B1E2A));
-        setBorder(new EmptyBorder(15,400,0,400));
-        setLayout(new FlowLayout(FlowLayout.CENTER,0,11));
+        setBorder(new EmptyBorder(0,400,0,400));
+        setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
     }
 
 

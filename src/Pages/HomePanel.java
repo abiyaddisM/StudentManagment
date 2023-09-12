@@ -21,15 +21,15 @@ public class HomePanel extends AImagePanel {
     private AButton startButton=new AButton("art\\homePage\\animate\\startButton\\normal.png","art\\homePage\\animate\\startButton\\hover.png",
             "art\\homePage\\animate\\startButton\\press.png",216,0,0,230);
 
-    private AImagePanel totalStudentImage=new AImagePanel("art\\homePage\\static\\stats\\totalStudent.png");
+    private AImagePanel totalStudentImage=new AImagePanel("art\\homePage\\static\\stats\\totalStudents.png");
     private AButton totalStudentButton=new AButton("art\\homePage\\animate\\addButton\\2\\normal.png","art\\homePage\\animate\\addButton\\2\\hover.png",
-            "art\\homePage\\animate\\addButton\\2\\press.png",19,230,0,0);
-    private AImagePanel totalTeacherImage=new AImagePanel("art\\homePage\\static\\stats\\totalTeacher.png");
+            "art\\homePage\\animate\\addButton\\2\\press.png");
+    private AImagePanel totalTeacherImage=new AImagePanel("art\\homePage\\static\\stats\\totalTeachers.png");
     private AButton totalTeacherButton=new AButton("art\\homePage\\animate\\addButton\\3\\normal.png","art\\homePage\\animate\\addButton\\3\\hover.png",
-            "art\\homePage\\animate\\addButton\\3\\press.png",19,230,0,0);
-    private AImagePanel totalStaffImage=new AImagePanel("art\\homePage\\static\\stats\\totalStaff.png");
+            "art\\homePage\\animate\\addButton\\3\\press.png");
+    private AImagePanel totalStaffImage=new AImagePanel("art\\homePage\\static\\stats\\totalStaffs.png");
     private AButton totalStaffButton=new AButton("art\\homePage\\animate\\addButton\\1\\normal.png","art\\homePage\\animate\\addButton\\1\\hover.png",
-            "art\\homePage\\animate\\addButton\\1\\press.png",19,230,0,0);
+            "art\\homePage\\animate\\addButton\\1\\press.png");
 
     //This are the button numbers that go 1 2 3 4
     private AButton schoolYearOneButton=new AButton("art\\homePage\\animate\\schoolYear\\1\\1Normal.png","art\\homePage\\animate\\schoolYear\\1\\1Hover.png","art\\homePage\\animate\\schoolYear\\1\\1Press.png");
@@ -38,6 +38,9 @@ public class HomePanel extends AImagePanel {
     private AButton schoolYearFourButton=new AButton("art\\homePage\\animate\\schoolYear\\4\\4Normal.png","art\\homePage\\animate\\schoolYear\\4\\4Hover.png","art\\homePage\\animate\\schoolYear\\4\\4Press.png");
 
 
+    AImageLabel amountOfStudent=new AImageLabel("art\\homePage\\static\\holder\\holder.png",20,"Bold",0,0,0,30);
+    AImageLabel amountOfTeacher=new AImageLabel("art\\homePage\\static\\holder\\holder.png",20,"Bold",0,0,0,30);
+    AImageLabel amountOfStaff=new AImageLabel("art\\homePage\\static\\holder\\holder.png",20,"Bold",0,0,0,30);
 
 
 
@@ -46,6 +49,7 @@ public class HomePanel extends AImagePanel {
         mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,11,10));
         statsPanel.mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,11,5));
         schoolYearPanel.mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,6,9));
+
 
         addPanel();
         addAboutUsPanel();
@@ -65,12 +69,29 @@ public class HomePanel extends AImagePanel {
         aboutUsTextImage.addMain(startButton);
     }
     void addStatsPanel(){
+        setNumberInfo();
+        totalStudentImage.addMain(amountOfStudent);
         totalStudentImage.addMain(totalStudentButton);
         statsPanel.addMain(totalStudentImage);
+        totalTeacherImage.addMain(amountOfTeacher);
         totalTeacherImage.addMain(totalTeacherButton);
         statsPanel.addMain(totalTeacherImage);
+        totalStaffImage.addMain(amountOfStaff);
         totalStaffImage.addMain(totalStaffButton);
         statsPanel.addMain(totalStaffImage);
+    }
+    void setNumberInfo(){
+        amountOfStudent.setText("2,120/5,238");
+        amountOfStudent.mainLabel.setBorder(new EmptyBorder(0,0,17,0));
+        amountOfStudent.setColor(0xD1CEE7);
+
+        amountOfTeacher.setText("155/350");
+        amountOfTeacher.mainLabel.setBorder(new EmptyBorder(0,0,17,0));
+        amountOfTeacher.setColor(0xD1CEE7);
+
+        amountOfStaff.setText("456/677");
+        amountOfStaff.mainLabel.setBorder(new EmptyBorder(0,0,17,0));
+        amountOfStaff.setColor(0xD1CEE7);
     }
     void addSchoolYearPanel(){
         schoolYearPanel.addMain(schoolYearOneButton);
@@ -103,11 +124,18 @@ public class HomePanel extends AImagePanel {
                         ManagePanel.hideAllExcept(ManagePanel.teacherRegisterPanel);
                     }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
 
+                } else if (e.getSource()==totalStaffButton.label) {
+                    ControlPanels.executor.schedule(() -> {
+                        ControlPanels.showManage(200);
+                        TopPanel.hideAllExcept(TopPanel.manageTab);
+                        ManagePanel.hideAllExcept(ManagePanel.staffRegisterPanel);
+                    }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
                 }
             }
         };
         startButton.label.addMouseListener(addButtonAction);
         totalStudentButton.label.addMouseListener(addButtonAction);
         totalTeacherButton.label.addMouseListener(addButtonAction);
+        totalStaffButton.label.addMouseListener(addButtonAction);
     }
 }

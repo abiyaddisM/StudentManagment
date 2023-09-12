@@ -1,14 +1,13 @@
 package Pages.Register;
 
-import AClass.AFrame;
 import Pages.ManagePanel;
 import src.RowInfoHolder;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class StudentRegisterPanel extends ManageRegisterPanel{
-    public StudentRegisterPanel(String file) {
+public class StaffRegisterPanel extends ManageRegisterPanel {
+    public StaffRegisterPanel(String file) {
         super(file);
         initializeList();
         setPlacement();
@@ -35,8 +34,8 @@ public class StudentRegisterPanel extends ManageRegisterPanel{
     }
     @Override
     void initializeList(){
-       super.initializeList();
-        studentBatchList=new String[]{"DBR2202","DBR2102","DBR2002","DBR1902"};
+        super.initializeList();
+        studentBatchList=new String[]{"Guard","Janitor","Assistant","Receptionist"};
 
     }
     @Override
@@ -45,9 +44,10 @@ public class StudentRegisterPanel extends ManageRegisterPanel{
         MouseAdapter action=new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-               if (e.getSource()==saveButton.label) {
+                if (e.getSource()==saveButton.label) {
                     RowInfoHolder infoHolder=new RowInfoHolder(studentIdLabel.getText(),firstNameTextBox.getString(),lastNameTextBox.getString(),yearComboBox.getText(), monthComboBox.getText(),dayComboBox.getText(),genderComboBox.getText(),studentBatchComboBox.getText(),emailTextBox.getString(),phoneNoTextBox.getString());
-                    ManagePanel.studentListPanel.addRow(infoHolder);
+                   infoHolder.display();
+                    ManagePanel.staffListPanel.addRow(infoHolder);
                     ManagePanel.backToOptionPanel();
                     clearAll();
                 }
@@ -56,7 +56,6 @@ public class StudentRegisterPanel extends ManageRegisterPanel{
 
         saveButton.label.addMouseListener(action);
     }
-
 
 
 }
