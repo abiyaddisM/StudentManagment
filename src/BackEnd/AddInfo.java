@@ -43,7 +43,7 @@ public class AddInfo {
                 Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
 
                 // Insert date of birth into the database
-                String insertSql = "INSERT INTO student (FirstName, LastName) VALUES (?,?)";
+                String insertSql = "INSERT INTO student (FirstName, LastName, visibleID) VALUES (?,?,?)";
                 PreparedStatement insertStatement = connection.prepareStatement(insertSql);
 
                 String dob = infoHolder.year + "-" + infoHolder.month + "-" + infoHolder.day;
@@ -55,6 +55,7 @@ public class AddInfo {
                 insertStatement.setString(5, infoHolder.phoneNo);
                 insertStatement.setString(6, infoHolder.email);
                 insertStatement.setString(7, infoHolder.department);*/
+                insertStatement.setString(3, generateID());
 
 
                 int rowsInserted = insertStatement.executeUpdate();
@@ -185,7 +186,7 @@ public class AddInfo {
         }
     }
 
-    public static String generateID (Connection connection) {
+    public static String generateID () {
         final String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // Letters to choose from
         final int NUMBERS_MIN = 1000; // Minimum number value (inclusive)
         final int NUMBERS_MAX = 9999; // Maximum number value (inclusive)
