@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-abstract public class ManageRegisterPanel extends AImagePanel {
+abstract  public class ManageRegisterPanel extends AImagePanel {
 
     String monthList[];
     String dayList[]=new String[31];
