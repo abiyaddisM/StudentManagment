@@ -1,6 +1,10 @@
 package Pages;
 import AClass.*;
-import src.*;
+import AClass.Button.AButton;
+import AClass.Button.AStringButton;
+import AClass.TextArea.ATextBox;
+import BackEnd.ControlPanels;
+
 import javax.swing.border.EmptyBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -10,14 +14,14 @@ public class SignUpPanel extends AImagePanel {
     private AImageLabel usernameImage=new AImageLabel("art/signUp/static/writing/username.png",45,0,5,0);
     private ATextBox usernameBox=new ATextBox();//Text box for the username
     private AImageLabel passwordImage=new AImageLabel("art/signUp/static/writing/password.png",25,0,5,0);//The "password" text in between the text box's
-    private APasswordTextBox passwordBox=new APasswordTextBox();//Text box for the password
+    private AImageLabel.APasswordTextBox passwordBox=new AImageLabel.APasswordTextBox();//Text box for the password
     private AImageLabel confirmPasswordImage=new AImageLabel("art/signUp/static/writing/ComfPassword.png",25,0,5,0);//The "confirm password" text in between the text box's
-    private APasswordTextBox confirmPasswordBox=new APasswordTextBox();//Text box for the  password confirmation
+    private AImageLabel.APasswordTextBox confirmPasswordBox=new AImageLabel.APasswordTextBox();//Text box for the  password confirmation
     private AButton signUpButton=new AButton("art/signUp/animate/signUpButton/normal.png","art/signUp/animate/signUpButton/hover.png","art/signUp/animate/signUpButton/press.png",66,0,58,0);
     private AImageLabel haveAnAccImage=new AImageLabel("art/signUp/static/writing/haveAnAcc.png",0,0,2,0);
     private AStringButton loginButton=new AStringButton("Login");
     public SignUpPanel(String file) {
-        super(file);
+        super(file,40,0,0,0);
         setVisible(false);
         addToPanel();
         addLoginButtonAction();

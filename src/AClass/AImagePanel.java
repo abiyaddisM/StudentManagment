@@ -5,9 +5,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class AImagePanel extends JPanel {
-    private JPanel innerPanel=new JPanel();
+    public JPanel innerPanel=new JPanel();
    public JPanel mainPanel=new JPanel();
-   private JLabel label=new JLabel();
+   public JLabel label=new JLabel();
     public AImagePanel(String file){
         ImageIcon icon=new ImageIcon(file);
         label.setIcon(icon);
