@@ -3,6 +3,7 @@ package BackEnd;
 public class RowInfoHolder {
     public String id, firstName, lastName, year, month, day, gender, department, email, phoneNo;
 
+
     // Constructor that initializes the fields
     public RowInfoHolder(String id, String firstName, String lastName, String year, String month, String day, String gender, String department, String email, String phoneNo) {
         this.id = id;

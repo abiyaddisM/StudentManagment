@@ -10,25 +10,25 @@ import java.awt.event.MouseListener;
 
 public class ManageOptionPanel extends AImagePanel {
 
-    static AImagePanel studentOption=new AImagePanel("art\\managmentsPage\\option\\static\\optionPanels\\studentOption.png",43,22,0,0);
-   static AButton studentViewButton=new AButton("art\\managmentsPage\\option\\animate\\view\\normalV.png","art\\managmentsPage\\option\\animate\\view\\hoverV.png",
-            "art\\managmentsPage\\option\\animate\\view\\pressV.png",13,210,0,0);
-    static AButton studentAddButton=new AButton("art\\managmentsPage\\option\\animate\\add\\normalA.png","art\\managmentsPage\\option\\animate\\add\\hoverA.png",
-            "art\\managmentsPage\\option\\animate\\add\\pressA.png",13,20,0,0);
+    static AImagePanel studentOption=new AImagePanel("art/managmentsPage/option/static/optionPanels/studentOption.png",43,22,0,0);
+   static AButton studentViewButton=new AButton("art/managmentsPage/option/animate/view/normalV.png","art/managmentsPage/option/animate/view/hoverV.png",
+            "art/managmentsPage/option/animate/view/pressV.png",13,210,0,0);
+    static AButton studentAddButton=new AButton("art/managmentsPage/option/animate/add/normalA.png","art/managmentsPage/option/animate/add/hoverA.png",
+            "art/managmentsPage/option/animate/add/pressA.png",13,20,0,0);
     //
-    static AImagePanel teacherOption=new AImagePanel("art\\managmentsPage\\option\\static\\optionPanels\\teacherOption.png",30,22,0,0);
-    static AButton teacherViewButton=new AButton("art\\managmentsPage\\option\\animate\\view\\normalV.png","art\\managmentsPage\\option\\animate\\view\\hoverV.png",
-            "art\\managmentsPage\\option\\animate\\view\\pressV.png",13,210,0,0);
-    static  AButton teacherAddButton=new AButton("art\\managmentsPage\\option\\animate\\add\\normalA.png","art\\managmentsPage\\option\\animate\\add\\hoverA.png",
-            "art\\managmentsPage\\option\\animate\\add\\pressA.png",13,20,0,0);
+    static AImagePanel teacherOption=new AImagePanel("art/managmentsPage/option/static/optionPanels/teacherOption.png",30,22,0,0);
+    static AButton teacherViewButton=new AButton("art/managmentsPage/option/animate/view/normalV.png","art/managmentsPage/option/animate/view/hoverV.png",
+            "art/managmentsPage/option/animate/view/pressV.png",13,210,0,0);
+    static  AButton teacherAddButton=new AButton("art/managmentsPage/option/animate/add/normalA.png","art/managmentsPage/option/animate/add/hoverA.png",
+            "art/managmentsPage/option/animate/add/pressA.png",13,20,0,0);
     //
-    static AImagePanel staffOption=new AImagePanel("art\\managmentsPage\\option\\static\\optionPanels\\staffOption.png",30,22,0,0);
-    static AButton staffViewButton=new AButton("art\\managmentsPage\\option\\animate\\view\\normalV.png","art\\managmentsPage\\option\\animate\\view\\hoverV.png",
-            "art\\managmentsPage\\option\\animate\\view\\pressV.png",13,210,0,0);
-    static AButton staffAddButton=new AButton("art\\managmentsPage\\option\\animate\\add\\normalA.png","art\\managmentsPage\\option\\animate\\add\\hoverA.png",
-            "art\\managmentsPage\\option\\animate\\add\\pressA.png",13,20,0,0);
+    static AImagePanel staffOption=new AImagePanel("art/managmentsPage/option/static/optionPanels/staffOption.png",30,22,0,0);
+    static AButton staffViewButton=new AButton("art/managmentsPage/option/animate/view/normalV.png","art/managmentsPage/option/animate/view/hoverV.png",
+            "art/managmentsPage/option/animate/view/pressV.png",13,210,0,0);
+    static AButton staffAddButton=new AButton("art/managmentsPage/option/animate/add/normalA.png","art/managmentsPage/option/animate/add/hoverA.png",
+            "art/managmentsPage/option/animate/add/pressA.png",13,20,0,0);
     public ManageOptionPanel() {
-        super("art\\managmentsPage\\option\\static\\background\\background.png",38,300,0,300);
+        super("art/managmentsPage/option/static/background/background.png",38,300,0,300);
         addPanels();
         addButtons();
         viewList();

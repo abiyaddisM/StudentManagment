@@ -4,6 +4,7 @@ import AClass.Button.AButton;
 import AClass.Button.AStringButton;
 import AClass.TextArea.ATextBox;
 import BackEnd.ControlPanels;
+import BackEnd.SignupVerification;
 
 import javax.swing.border.EmptyBorder;
 import java.awt.event.MouseAdapter;
@@ -24,6 +25,7 @@ public class SignUpPanel extends AImagePanel {
         super(file,40,0,0,0);
         setVisible(false);
         addToPanel();
+        addSignupButtonAction();
         addLoginButtonAction();
         mainPanel.setBorder(new EmptyBorder(0,28,0,28));
 
@@ -49,4 +51,20 @@ public class SignUpPanel extends AImagePanel {
         });
 
     }
+
+    void addSignupButtonAction(){
+        signUpButton.label.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String username = usernameBox.textLabel.getText();
+                String password = passwordBox.textLabel.getText();
+                String confirmPassword = confirmPasswordBox.textLabel.getText();
+                SignupVerification signupVerification = new SignupVerification(username, password, confirmPassword);
+                signupVerification.registerUser();
+            }
+        });
+
+    }
 }
+
+

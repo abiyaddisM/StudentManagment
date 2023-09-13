@@ -16,15 +16,15 @@ public class ATableRow extends AImagePanel {
     private ALabel genderText=new ALabel(95);
     private ALabel placeText=new ALabel(140);
     public RowInfoHolder infoHolder;
-    public AButton editButton=new AButton("art\\managmentsPage\\lists\\animated\\editButton\\normal.png","art\\managmentsPage\\lists\\animated\\editButton\\hover.png",
-            "art\\managmentsPage\\lists\\animated\\editButton\\press.png",0,40,0,0);
-    public AButton deleteButton=new AButton("art\\managmentsPage\\lists\\animated\\deleteButton\\normal.png","art\\managmentsPage\\lists\\animated\\deleteButton\\hover.png",
-            "art\\managmentsPage\\lists\\animated\\deleteButton\\press.png",0,50,0,0);
+    public AButton editButton=new AButton("art/managmentsPage/lists/animated/editButton/normal.png","art/managmentsPage/lists/animated/editButton/hover.png",
+            "art/managmentsPage/lists/animated/editButton/press.png",0,40,0,0);
+    public AButton deleteButton=new AButton("art/managmentsPage/lists/animated/deleteButton/normal.png","art/managmentsPage/lists/animated/deleteButton/hover.png",
+            "art/managmentsPage/lists/animated/deleteButton/press.png",0,50,0,0);
 
 
 
     public ATableRow(RowInfoHolder infoHolder) {
-        super("art\\managmentsPage\\lists\\static\\background\\rowBackground2.png",0,0,3,0);
+        super("art/managmentsPage/lists/static/background/rowBackground2.png",0,0,3,0);
         this.infoHolder=infoHolder;
         mainPanel.setBorder(new EmptyBorder(3,0,0,0));
         mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT));

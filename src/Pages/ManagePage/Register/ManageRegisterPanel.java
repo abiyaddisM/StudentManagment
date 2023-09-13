@@ -22,17 +22,17 @@ abstract  public class ManageRegisterPanel extends AImagePanel {
 
 
 
-    AButton exitButton=new AButton("art\\managmentsPage\\register\\animated\\exitButton\\normalE.png","art\\managmentsPage\\register\\animated\\exitButton\\hoverE.png","art\\managmentsPage\\register\\animated\\exitButton\\pressE.png",0,0,0,600);
+    AButton exitButton=new AButton("art/managmentsPage/register/animated/exitButton/normalE.png","art/managmentsPage/register/animated/exitButton/hoverE.png","art/managmentsPage/register/animated/exitButton/pressE.png",0,0,0,600);
     ATextBox firstNameTextBox=new ATextBox("art/managmentsPage/register/animated/textBox/normalR.png","art/managmentsPage/register/animated/textBox/pressR.png");
     ATextBox lastNameTextBox=new ATextBox("art/managmentsPage/register/animated/textBox/normalR.png","art/managmentsPage/register/animated/textBox/pressR.png");
     ATextBox emailTextBox=new ATextBox("art/managmentsPage/register/animated/textBox/normalR.png","art/managmentsPage/register/animated/textBox/pressR.png");
     ATextBox phoneNoTextBox=new ATextBox("art/managmentsPage/register/animated/textBox/normalR.png","art/managmentsPage/register/animated/textBox/pressR.png");
-    AImageLabel studentIdLabel=new AImageLabel("art\\managmentsPage\\register\\static\\studentID\\holder.png",12,"Regular");
-    AButton refreshButton=new AButton("art\\managmentsPage\\register\\animated\\studentID\\normalR.png","art\\managmentsPage\\register\\animated\\studentID\\hoverR.png","art\\managmentsPage\\register\\animated\\studentID\\pressR.png");
+    AImageLabel studentIdLabel=new AImageLabel("art/managmentsPage/register/static/studentID/holder.png",12,"Regular");
+    AButton refreshButton=new AButton("art/managmentsPage/register/animated/studentID/normalR.png","art/managmentsPage/register/animated/studentID/hoverR.png","art/managmentsPage/register/animated/studentID/pressR.png");
 
-    AButton clearButton=new AButton("art\\managmentsPage\\register\\animated\\saveAndClear\\normalC.png","art\\managmentsPage\\register\\animated\\saveAndClear\\hoverC.png","art\\managmentsPage\\register\\animated\\saveAndClear\\pressC.png");
+    AButton clearButton=new AButton("art/managmentsPage/register/animated/saveAndClear/normalC.png","art/managmentsPage/register/animated/saveAndClear/hoverC.png","art/managmentsPage/register/animated/saveAndClear/pressC.png");
 
-    AButton saveButton=new AButton("art\\managmentsPage\\register\\animated\\saveAndClear\\normalS.png","art\\managmentsPage\\register\\animated\\saveAndClear\\hoverS.png","art\\managmentsPage\\register\\animated\\saveAndClear\\pressS.png");
+    AButton saveButton=new AButton("art/managmentsPage/register/animated/saveAndClear/normalS.png","art/managmentsPage/register/animated/saveAndClear/hoverS.png","art/managmentsPage/register/animated/saveAndClear/pressS.png");
     AComboBox monthComboBox=new AComboBox();
     AComboBox dayComboBox=new AComboBox();
     AComboBox yearComboBox= new AComboBox();

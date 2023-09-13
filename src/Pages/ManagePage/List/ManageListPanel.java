@@ -19,8 +19,8 @@ abstract public class ManageListPanel extends AImagePanel {
 
     private  int rowIdex=0;
     private static int size=20;
-    private AButton backButton=new AButton("art\\managmentsPage\\register\\animated\\exitButton\\normalE.png","art\\managmentsPage\\register\\animated\\exitButton\\hoverE.png","art\\managmentsPage\\register\\animated\\exitButton\\pressE.png",0,0,0,779);
-    private AImagePanel holderPanel=new AImagePanel("art\\managmentsPage\\lists\\static\\background\\holderBackground.png",81,0,0,0);
+    private AButton backButton=new AButton("art/managmentsPage/register/animated/exitButton/normalE.png","art/managmentsPage/register/animated/exitButton/hoverE.png","art/managmentsPage/register/animated/exitButton/pressE.png",0,0,0,779);
+    private AImagePanel holderPanel=new AImagePanel("art/managmentsPage/lists/static/background/holderBackground.png",81,0,0,0);
     private JPanel panel=new JPanel();
 
 

@@ -13,35 +13,35 @@ import java.util.concurrent.TimeUnit;
 
 public class HomePanel extends AImagePanel {
 
-    private AImagePanel aboutUsPanel=new AImagePanel("art\\homePage\\static\\aboutUs\\background.png");
-    private AImagePanel statsPanel=new AImagePanel("art\\homePage\\static\\stats\\background.png");
-    private AImagePanel schoolYearPanel=new AImagePanel("art\\homePage\\static\\year\\background.png");
+    private AImagePanel aboutUsPanel=new AImagePanel("art/homePage/static/aboutUs/background.png");
+    private AImagePanel statsPanel=new AImagePanel("art/homePage/static/stats/background.png");
+    private AImagePanel schoolYearPanel=new AImagePanel("art/homePage/static/year/background.png");
 
-    private AImagePanel aboutUsTextImage=new AImagePanel("art\\homePage\\static\\aboutUs\\aboutUs.png");
-    private AImageLabel aboutUsBoxImage=new AImageLabel("art\\homePage\\static\\aboutUs\\image.png",24,0,0,0);
-    private AButton startButton=new AButton("art\\homePage\\animate\\startButton\\normal.png","art\\homePage\\animate\\startButton\\hover.png",
-            "art\\homePage\\animate\\startButton\\press.png",216,0,0,230);
+    private AImagePanel aboutUsTextImage=new AImagePanel("art/homePage/static/aboutUs/aboutUs.png");
+    private AImageLabel aboutUsBoxImage=new AImageLabel("art/homePage/static/aboutUs/image.png",24,0,0,0);
+    private AButton startButton=new AButton("art/homePage/animate/startButton/normal.png","art/homePage/animate/startButton/hover.png",
+            "art/homePage/animate/startButton/press.png",216,0,0,230);
 
-    private AImagePanel totalStudentImage=new AImagePanel("art\\homePage\\static\\stats\\totalStudents.png");
-    private AButton totalStudentButton=new AButton("art\\homePage\\animate\\addButton\\2\\normal.png","art\\homePage\\animate\\addButton\\2\\hover.png",
-            "art\\homePage\\animate\\addButton\\2\\press.png");
-    private AImagePanel totalTeacherImage=new AImagePanel("art\\homePage\\static\\stats\\totalTeachers.png");
-    private AButton totalTeacherButton=new AButton("art\\homePage\\animate\\addButton\\3\\normal.png","art\\homePage\\animate\\addButton\\3\\hover.png",
-            "art\\homePage\\animate\\addButton\\3\\press.png");
-    private AImagePanel totalStaffImage=new AImagePanel("art\\homePage\\static\\stats\\totalStaffs.png");
-    private AButton totalStaffButton=new AButton("art\\homePage\\animate\\addButton\\1\\normal.png","art\\homePage\\animate\\addButton\\1\\hover.png",
-            "art\\homePage\\animate\\addButton\\1\\press.png");
+    private AImagePanel totalStudentImage=new AImagePanel("art/homePage/static/stats/totalStudents.png");
+    private AButton totalStudentButton=new AButton("art/homePage/animate/addButton/2/normal.png","art/homePage/animate/addButton/2/hover.png",
+            "art/homePage/animate/addButton/2/press.png");
+    private AImagePanel totalTeacherImage=new AImagePanel("art/homePage/static/stats/totalTeachers.png");
+    private AButton totalTeacherButton=new AButton("art/homePage/animate/addButton/3/normal.png","art/homePage/animate/addButton/3/hover.png",
+            "art/homePage/animate/addButton/3/press.png");
+    private AImagePanel totalStaffImage=new AImagePanel("art/homePage/static/stats/totalStaffs.png");
+    private AButton totalStaffButton=new AButton("art/homePage/animate/addButton/1/normal.png","art/homePage/animate/addButton/1/hover.png",
+            "art/homePage/animate/addButton/1/press.png");
 
     //This are the button numbers that go 1 2 3 4
-    private AButton schoolYearOneButton=new AButton("art\\homePage\\animate\\schoolYear\\1\\1Normal.png","art\\homePage\\animate\\schoolYear\\1\\1Hover.png","art\\homePage\\animate\\schoolYear\\1\\1Press.png");
-    private AButton schoolYearTwoButton=new AButton("art\\homePage\\animate\\schoolYear\\2\\1Normal.png","art\\homePage\\animate\\schoolYear\\2\\1Hover.png","art\\homePage\\animate\\schoolYear\\2\\1Press.png");
-    private AButton schoolYearThreeButton=new AButton("art\\homePage\\animate\\schoolYear\\3\\3Normal.png","art\\homePage\\animate\\schoolYear\\3\\3Hover.png","art\\homePage\\animate\\schoolYear\\3\\3Press.png");
-    private AButton schoolYearFourButton=new AButton("art\\homePage\\animate\\schoolYear\\4\\4Normal.png","art\\homePage\\animate\\schoolYear\\4\\4Hover.png","art\\homePage\\animate\\schoolYear\\4\\4Press.png");
+    private AButton schoolYearOneButton=new AButton("art/homePage/animate/schoolYear/1/1Normal.png","art/homePage/animate/schoolYear/1/1Hover.png","art/homePage/animate/schoolYear/1/1Press.png");
+    private AButton schoolYearTwoButton=new AButton("art/homePage/animate/schoolYear/2/1Normal.png","art/homePage/animate/schoolYear/2/1Hover.png","art/homePage/animate/schoolYear/2/1Press.png");
+    private AButton schoolYearThreeButton=new AButton("art/homePage/animate/schoolYear/3/3Normal.png","art/homePage/animate/schoolYear/3/3Hover.png","art/homePage/animate/schoolYear/3/3Press.png");
+    private AButton schoolYearFourButton=new AButton("art/homePage/animate/schoolYear/4/4Normal.png","art/homePage/animate/schoolYear/4/4Hover.png","art/homePage/animate/schoolYear/4/4Press.png");
 
 
-    AImageLabel amountOfStudent=new AImageLabel("art\\homePage\\static\\holder\\holder.png",20,"Bold",0,0,0,30);
-    AImageLabel amountOfTeacher=new AImageLabel("art\\homePage\\static\\holder\\holder.png",20,"Bold",0,0,0,30);
-    AImageLabel amountOfStaff=new AImageLabel("art\\homePage\\static\\holder\\holder.png",20,"Bold",0,0,0,30);
+    AImageLabel amountOfStudent=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,30);
+    AImageLabel amountOfTeacher=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,30);
+    AImageLabel amountOfStaff=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,30);
 
 
 

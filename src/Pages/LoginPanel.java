@@ -5,6 +5,7 @@ import AClass.Button.ACheckBox;
 import AClass.Button.AStringButton;
 import AClass.TextArea.ATextBox;
 import BackEnd.ControlPanels;
+import BackEnd.LoginVerifcation;
 
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -57,29 +58,20 @@ public class LoginPanel extends AImagePanel {
         return this;
     }
     void addLoginbuttonAction(){
-        HashMap<String ,String>nameAndPassword=new HashMap<>();
-        nameAndPassword.put("abiyaddis","12345");
-        nameAndPassword.put("User42069","getAlife");
-        nameAndPassword.put("admin","admin");
-        nameAndPassword.put("","");
         loginbutton.label.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                String username=usernameBox.textLabel.getText(),password=passwordBox.textLabel.getText();
-
-                if(nameAndPassword.containsKey(username)){
-                    if (nameAndPassword.get(username).equals(password)){
+                String username=usernameBox.textLabel.getText();
+                String password=passwordBox.textLabel.getText();
+                LoginVerifcation loginVerifcation = new LoginVerifcation(username, password);
+                    if (loginVerifcation.verifyAccount()){
                         ControlPanels.executor.schedule(() -> {
                             ControlPanels.showHome();
                         }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
-                    }else {
-                        System.out.println("Wrong password");
                     }
-                }
-                else {
-                    System.out.println("There is no account with that username");
-                }
+
+
             }
         });
     }
@@ -87,6 +79,8 @@ public class LoginPanel extends AImagePanel {
         signUpButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                usernameBox.textLabel.setText("");
+                passwordBox.textLabel.setText("");
                 ControlPanels.showSignUp();
             }
         });
