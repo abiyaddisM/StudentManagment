@@ -14,6 +14,7 @@ import java.awt.event.MouseEvent;
 
 abstract  public class ManageRegisterPanel extends AImagePanel {
 
+//a
     String monthList[];
     String dayList[]=new String[31];
     String yearList[]=new String[100];
