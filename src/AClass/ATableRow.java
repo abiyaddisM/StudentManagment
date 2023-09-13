@@ -1,13 +1,13 @@
 package AClass;
 
-import src.RowInfoHolder;
+import AClass.Button.AButton;
+import BackEnd.RowInfoHolder;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class ATableRow extends AImagePanel {
     private ALabel idText=new ALabel(125);

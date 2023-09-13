@@ -1,4 +1,7 @@
-package AClass;
+package AClass.Button;
+import AClass.AImagePanel;
+import AClass.Button.*;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;

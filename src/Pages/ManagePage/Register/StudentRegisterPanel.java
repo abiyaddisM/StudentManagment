@@ -1,15 +1,13 @@
-package Pages.Register;
+package Pages.ManagePage.Register;
 
-import AClass.AFrame;
-import Pages.ManagePanel;
-import src.RowInfoHolder;
+import Pages.ManagePage.ManagePanel;
+import BackEnd.RowInfoHolder;
 
-import javax.swing.border.EmptyBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class TeacherRegisterPanel extends ManageRegisterPanel{
-    public TeacherRegisterPanel(String file) {
+public class StudentRegisterPanel extends ManageRegisterPanel{
+    public StudentRegisterPanel(String file) {
         super(file);
         initializeList();
         setPlacement();
@@ -34,11 +32,11 @@ public class TeacherRegisterPanel extends ManageRegisterPanel{
         addMain(clearButton);
         addMain(saveButton);
     }
-
     @Override
     void initializeList(){
-      super.initializeList();
-        studentBatchList=new String[]{"Computer Science","Software Engineer","Political Science","Art"};
+       super.initializeList();
+        studentBatchList=new String[]{"DBR2202","DBR2102","DBR2002","DBR1902"};
+
     }
     @Override
     void addButtonAction(){
@@ -46,9 +44,9 @@ public class TeacherRegisterPanel extends ManageRegisterPanel{
         MouseAdapter action=new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getSource()==saveButton.label) {
+               if (e.getSource()==saveButton.label) {
                     RowInfoHolder infoHolder=new RowInfoHolder(studentIdLabel.getText(),firstNameTextBox.getString(),lastNameTextBox.getString(),yearComboBox.getText(), monthComboBox.getText(),dayComboBox.getText(),genderComboBox.getText(),studentBatchComboBox.getText(),emailTextBox.getString(),phoneNoTextBox.getString());
-                    ManagePanel.teacherListPanel.addRow(infoHolder);
+                    ManagePanel.studentListPanel.addRow(infoHolder);
                     ManagePanel.backToOptionPanel();
                     clearAll();
                 }
@@ -57,5 +55,7 @@ public class TeacherRegisterPanel extends ManageRegisterPanel{
 
         saveButton.label.addMouseListener(action);
     }
+
+
 
 }

@@ -1,13 +1,14 @@
 package Pages;
 import AClass.*;
-import src.*;
+import AClass.Button.ATab;
+import BackEnd.ControlPanels;
+import Pages.ManagePage.ManagePanel;
 
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.concurrent.TimeUnit;
 
 public class TopPanel extends AImagePanel {
     String art="art";

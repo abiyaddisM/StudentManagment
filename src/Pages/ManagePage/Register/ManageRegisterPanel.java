@@ -1,8 +1,11 @@
-package Pages.Register;
+package Pages.ManagePage.Register;
 
 import AClass.*;
-import Pages.ManagePanel;
-import src.RowInfoHolder;
+import AClass.Button.AButton;
+import AClass.Button.AComboBox;
+import AClass.TextArea.ATextBox;
+import Pages.ManagePage.ManagePanel;
+import BackEnd.RowInfoHolder;
 
 import javax.swing.border.EmptyBorder;
 import java.awt.*;

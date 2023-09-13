@@ -1,7 +1,8 @@
-package Pages;
+package Pages.ManagePage;
 
-import AClass.AButton;
+import AClass.Button.AButton;
 import AClass.AImagePanel;
+import Pages.ManagePage.ManagePanel;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

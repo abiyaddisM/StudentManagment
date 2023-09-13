@@ -1,4 +1,4 @@
-package src;
+package BackEnd;
 
 public class RowInfoHolder {
     public String id, firstName, lastName, year, month, day, gender, department, email, phoneNo;

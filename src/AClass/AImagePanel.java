@@ -7,7 +7,7 @@ import java.awt.*;
 public class AImagePanel extends JPanel {
     public JPanel innerPanel=new JPanel();
    public JPanel mainPanel=new JPanel();
-   JLabel label=new JLabel();
+   public JLabel label=new JLabel();
     public AImagePanel(String file){
         ImageIcon icon=new ImageIcon(file);
         label.setIcon(icon);

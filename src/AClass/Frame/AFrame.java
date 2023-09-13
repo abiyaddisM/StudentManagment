@@ -1,4 +1,4 @@
-package AClass;
+package AClass.Frame;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

@@ -1,10 +1,9 @@
-package Pages;
+package Pages.ManagePage;
 
 import AClass.AImagePanel;
-import Pages.List.ManageListPanel;
-import Pages.List.*;
-import Pages.Register.*;
-import src.RowInfoHolder;
+import Pages.ManagePage.List.*;
+import Pages.ManagePage.Register.*;
+import BackEnd.RowInfoHolder;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,10 +21,10 @@ public class ManagePanel extends JPanel {
      getStaffInfoFromDatabase();
     }
 
-    static ManageOptionPanel manageOptionPanel=new ManageOptionPanel();
-    static TeacherRegisterPanel teacherRegisterPanel=new TeacherRegisterPanel("art\\managmentsPage\\register\\static\\background\\teacherBackground1.png");
-    static StaffRegisterPanel staffRegisterPanel=new StaffRegisterPanel("art\\managmentsPage\\register\\static\\background\\staffBackground.png");
-    static StudentRegisterPanel studentManageRegisterPanel=new StudentRegisterPanel("art\\managmentsPage\\register\\static\\background\\studentBackground1.png");
+    public static ManageOptionPanel manageOptionPanel=new ManageOptionPanel();
+    public static TeacherRegisterPanel teacherRegisterPanel=new TeacherRegisterPanel("art\\managmentsPage\\register\\static\\background\\teacherBackground1.png");
+    public static StaffRegisterPanel staffRegisterPanel=new StaffRegisterPanel("art\\managmentsPage\\register\\static\\background\\staffBackground.png");
+    public static StudentRegisterPanel studentManageRegisterPanel=new StudentRegisterPanel("art\\managmentsPage\\register\\static\\background\\studentBackground1.png");
     static public StudentListPanel studentListPanel=new StudentListPanel("art\\managmentsPage\\lists\\static\\background\\studentBackground1.png",studentInfoHolders);
     static public TeacherListPanel teacherListPanel=new TeacherListPanel("art\\managmentsPage\\lists\\static\\background\\teacherBackground1.png",teacherInfoHolders);
     static public StaffListPanel staffListPanel=new StaffListPanel("art\\managmentsPage\\lists\\static\\background\\staffBackground1.png",staffInfoHolders);

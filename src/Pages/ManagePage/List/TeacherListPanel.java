@@ -1,8 +1,8 @@
-package Pages.List;
+package Pages.ManagePage.List;
 
 import AClass.ATableRow;
-import Pages.ManagePanel;
-import src.RowInfoHolder;
+import Pages.ManagePage.ManagePanel;
+import BackEnd.RowInfoHolder;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

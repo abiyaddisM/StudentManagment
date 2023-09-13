@@ -1,7 +1,6 @@
-package src;
+package AClass.Frame;
 
-import AClass.AButton;
-import AClass.AFrame;
+import AClass.Button.AButton;
 import AClass.AImagePanel;
 
 import javax.swing.*;
@@ -12,13 +11,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 
-public class TitleBar extends AImagePanel {
+public class ATitleBar extends AImagePanel {
 
 
     AButton closeButton=new AButton("art\\titleBar\\animate\\button\\normalC.png","art\\titleBar\\animate\\button\\hoverC.png","art\\titleBar\\animate\\button\\pressC.png");
     AButton expandButton=new AButton("art\\titleBar\\animate\\button\\normalE.png","art\\titleBar\\animate\\button\\hoverE.png","art\\titleBar\\animate\\button\\pressE.png");
     AButton minimizeButton=new AButton("art\\titleBar\\animate\\button\\normalM.png","art\\titleBar\\animate\\button\\hoverM.png","art\\titleBar\\animate\\button\\pressM.png");
-    public TitleBar() {
+    public ATitleBar() {
         super("art\\titleBar\\static\\background\\background.png");
         mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,4,0));
         mainPanel.setBorder(new EmptyBorder(5,1120,0,0));

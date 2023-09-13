@@ -1,4 +1,4 @@
-package AClass;
+package AClass.Button;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

@@ -1,6 +1,4 @@
-package src;
-import Pages.ManagePanel;
-import Pages.TopPanel;
+package BackEnd;
 
 import javax.swing.*;
 import java.awt.*;

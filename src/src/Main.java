@@ -1,16 +1,15 @@
 package src;
+import AClass.Frame.ATitleBar;
+import BackEnd.ControlPanels;
 import Pages.*;
-import AClass.AFrame;
-import Pages.*;
-
-import javax.swing.*;
-import java.awt.*;
+import AClass.Frame.AFrame;
+import Pages.ManagePage.ManagePanel;
 
 public class Main {
     public static void main(String[] args) {
 
 
-        TitleBar titleBar=new TitleBar();
+        ATitleBar titleBar=new ATitleBar();
         LoginPanel loginPanel=new LoginPanel("art/loginPage/background/background.png");
         SignUpPanel signUpPanel=new SignUpPanel("art/signUp/static/background/background.png");
         TopPanel topPanel=new TopPanel("art/topBar/static/background.png");

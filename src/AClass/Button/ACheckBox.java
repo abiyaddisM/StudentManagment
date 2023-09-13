@@ -1,4 +1,4 @@
-package AClass;
+package AClass.Button;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;

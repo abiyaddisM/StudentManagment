@@ -1,4 +1,6 @@
-package AClass;
+package AClass.Button;
+
+import AClass.Frame.AFrame;
 
 import javax.swing.*;
 import java.awt.*;

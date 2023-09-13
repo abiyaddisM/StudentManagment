@@ -1,4 +1,6 @@
-package AClass;
+package AClass.TextArea;
+
+import AClass.Frame.AFrame;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

@@ -1,4 +1,4 @@
-package Pages.Register;
+package Pages.ManagePage.Register;
 
 import javax.swing.*;
 
