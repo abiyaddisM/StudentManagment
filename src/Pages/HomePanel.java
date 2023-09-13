@@ -33,17 +33,16 @@ public class HomePanel extends AImagePanel {
             "art/homePage/animate/addButton/1/press.png");
 
     //This are the button numbers that go 1 2 3 4
-<<<<<<< HEAD
     private AButton schoolYearOneButton=new AButton("art/homePage/animate/schoolYear/1/1Normal.png","art/homePage/animate/schoolYear/1/1Hover.png","art/homePage/animate/schoolYear/1/1Press.png");
     private AButton schoolYearTwoButton=new AButton("art/homePage/animate/schoolYear/2/1Normal.png","art/homePage/animate/schoolYear/2/1Hover.png","art/homePage/animate/schoolYear/2/1Press.png");
     private AButton schoolYearThreeButton=new AButton("art/homePage/animate/schoolYear/3/3Normal.png","art/homePage/animate/schoolYear/3/3Hover.png","art/homePage/animate/schoolYear/3/3Press.png");
     private AButton schoolYearFourButton=new AButton("art/homePage/animate/schoolYear/4/4Normal.png","art/homePage/animate/schoolYear/4/4Hover.png","art/homePage/animate/schoolYear/4/4Press.png");
-=======
-    private AButton sEButton=new AButton("art\\homePage\\animate\\department\\normalSE.png","art\\homePage\\animate\\department\\hoverSE.png","art\\homePage\\animate\\department\\pressSE.png");
-    private AButton cSButton=new AButton("art\\homePage\\animate\\department\\normalCS.png","art\\homePage\\animate\\department\\hoverCS.png","art\\homePage\\animate\\department\\pressCS.png");
-    private AButton dSButton=new AButton("art\\homePage\\animate\\department\\normalDS.png","art\\homePage\\animate\\department\\hoverDS.png","art\\homePage\\animate\\department\\pressDS.png");
-    private AButton aIButton=new AButton("art\\homePage\\animate\\department\\normalAI.png","art\\homePage\\animate\\department\\hoverAI.png","art\\homePage\\animate\\department\\pressAI.png");
->>>>>>> firstBranch
+
+    private AButton sEButton=new AButton("art/homePage/animate/department/normalSE.png","art/homePage/animate/department/hoverSE.png","art/homePage/animate/department/pressSE.png");
+    private AButton cSButton=new AButton("art/homePage/animate/department/normalCS.png","art/homePage/animate/department/hoverCS.png","art/homePage/animate/department/pressCS.png");
+    private AButton dSButton=new AButton("art/homePage/animate/department/normalDS.png","art/homePage/animate/department/hoverDS.png","art/homePage/animate/department/pressDS.png");
+    private AButton aIButton=new AButton("art/homePage/animate/department/normalAI.png","art/homePage/animate/department/hoverAI.png","art/homePage/animate/department/pressAI.png");
+
 
 
     AImageLabel amountOfStudent=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,30);

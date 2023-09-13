@@ -3,6 +3,7 @@ package Pages.ManagePage.List;
 import AClass.*;
 import AClass.Button.AButton;
 import AClass.Frame.AFrame;
+import BackEnd.DeleteInfo;
 import Pages.ManagePage.ManagePanel;
 import BackEnd.RowInfoHolder;
 
@@ -102,14 +103,19 @@ abstract public class ManageListPanel extends AImagePanel {
     }
     int I;
     void deleteRow(){
+        System.out.println("here");
         for (int i = 0; i < tableRows.size(); i++) {
            I = i;
-            ATableRow row = tableRows.get(i);
 
+           ATableRow row = tableRows.get(i);
             row.deleteButton.label.addMouseListener(new MouseAdapter() {
                @Override
                public void mouseClicked(MouseEvent e) {
+                   String id = row.infoHolder.id;
                    row.setPanelOff();
+                   DeleteInfo deleteInfo = new DeleteInfo(id);
+                   deleteInfo.deleteStudent();
+
                }
            });
         }
