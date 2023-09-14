@@ -47,9 +47,7 @@ public class SettingPanel extends JPanel {
         add(settingPage);
         add(groupMemberImage);
     }
-    public SettingPanel(LoginVerifcation loginVerifcation){
-        this.username = loginVerifcation.username;
-    }
+
     void addButtons(){
         settingPage.addMain(textLabel);
         settingPage.addMain(groupButton);
@@ -117,7 +115,5 @@ class ALabel extends JPanel{
     void setText(String text){
         label.setText(text);
     }
-    public void setUsername(){
 
-    }
 }

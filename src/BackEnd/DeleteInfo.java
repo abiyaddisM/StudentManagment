@@ -71,4 +71,33 @@ public class DeleteInfo {
             e.printStackTrace();
         }
     }
+    public void deleteStaff(){
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
+
+            String selectQuery = "SELECT staff_id FROM staff WHERE display_id = ?";
+            PreparedStatement selectStatement = connection.prepareStatement(selectQuery);
+            selectStatement.setString(1, this.displayID);
+            ResultSet resultSet = selectStatement.executeQuery();
+            if(resultSet.next()) {
+                this.id = resultSet.getInt("staff_id");
+            }
+            String deletePhoneQuery = "DELETE FROM staff_phone_number WHERE staff_id = ?";
+            PreparedStatement deletePhone = connection.prepareStatement(deletePhoneQuery);
+            deletePhone.setInt(1, this.id);
+            deletePhone.executeUpdate();
+            String deleteEmailQuery = "DELETE FROM staff_email WHERE staff_id = ?";
+            PreparedStatement deleteEmail = connection.prepareStatement(deleteEmailQuery);
+            deleteEmail.setInt(1, this.id);
+            deleteEmail.executeUpdate();
+            String deleteSql = "DELETE FROM staff WHERE staff_id = ?";
+            PreparedStatement deleteStatement = connection.prepareStatement(deleteSql);
+            deleteStatement.setInt(1, this.id);
+            deleteStatement.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
 }
