@@ -40,6 +40,64 @@ public class EditInfo {
             e.printStackTrace();
         }
     }
+
+    public void updateTeacher(){
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
+
+            String updateQuery = "UPDATE teacher SET first_name = ?, last_name = ?, date_of_birth = ?, gender = ? WHERE display_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+
+            //String dob = infoHolder.year + "-" + infoHolder.month + "-" + infoHolder.day;
+            int year = Integer.parseInt(infoHolder.year);
+            int month = convertMonthStringToInt(infoHolder.month);
+            int day = Integer.parseInt(infoHolder.day);
+            LocalDate date = LocalDate.of(year, month, day);
+            Date dob = Date.valueOf(date);
+
+            String displayID = infoHolder.id;
+            preparedStatement.setString(1, infoHolder.firstName );
+            preparedStatement.setString(2, infoHolder.lastName);
+            preparedStatement.setDate(3, dob);
+            preparedStatement.setString(4, infoHolder.gender);
+            preparedStatement.setString(5,infoHolder.id);
+
+            preparedStatement.executeUpdate();
+
+            connection.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateStaff(){
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
+
+            String updateQuery = "UPDATE staff SET first_name = ?, last_name = ?, date_of_birth = ?, gender = ? WHERE display_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+
+            //String dob = infoHolder.year + "-" + infoHolder.month + "-" + infoHolder.day;
+            int year = Integer.parseInt(infoHolder.year);
+            int month = convertMonthStringToInt(infoHolder.month);
+            int day = Integer.parseInt(infoHolder.day);
+            LocalDate date = LocalDate.of(year, month, day);
+            Date dob = Date.valueOf(date);
+
+            String displayID = infoHolder.id;
+            preparedStatement.setString(1, infoHolder.firstName );
+            preparedStatement.setString(2, infoHolder.lastName);
+            preparedStatement.setDate(3, dob);
+            preparedStatement.setString(4, infoHolder.gender);
+            preparedStatement.setString(5,infoHolder.id);
+
+            preparedStatement.executeUpdate();
+
+            connection.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
     public int convertMonthStringToInt(String monthString) {
         switch (monthString.toLowerCase()) {
             case "january":

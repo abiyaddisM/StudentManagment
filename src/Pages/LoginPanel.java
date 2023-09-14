@@ -66,7 +66,6 @@ public class LoginPanel extends AImagePanel {
                 LoginVerifcation loginVerifcation = new LoginVerifcation(username, password);
                     if (loginVerifcation.verifyAccount()){
                         ControlPanels.executor.schedule(() -> {
-                            SettingPanel settingPanel = new SettingPanel(loginVerifcation);
                             ControlPanels.showHome();
                         }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
                     }
