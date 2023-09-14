@@ -36,7 +36,7 @@ public class StaffRegisterPanel extends ManageRegisterPanel {
     @Override
     void initializeList(){
         super.initializeList();
-        studentBatchList=new String[]{"Software Engineer","Computer Science","Data Science","Artificial Intelligence"};
+        studentBatchList=new String[]{"Janitor","Guard","Receptionist","Assistant"};
 
     }
     @Override

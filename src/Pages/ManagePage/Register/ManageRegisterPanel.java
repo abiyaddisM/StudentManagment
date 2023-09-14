@@ -4,6 +4,7 @@ import AClass.*;
 import AClass.Button.AButton;
 import AClass.Button.AComboBox;
 import AClass.TextArea.ATextBox;
+import BackEnd.AddInfo;
 import Pages.ManagePage.ManagePanel;
 import BackEnd.RowInfoHolder;
 
@@ -44,12 +45,13 @@ abstract  public class ManageRegisterPanel extends AImagePanel {
         super(file);
         mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT,0,0));
         setBorder(new EmptyBorder(5,0,0,0));
-        studentIdLabel.setText("PT1512");
+        studentIdLabel.setText(AddInfo.generateID());
         studentIdLabel.mainLabel.setBorder(new EmptyBorder(0,8,0,0));
         addButtonAction();
 
     }
    abstract void addComponents();
+
 
 
     void initializeComboBox() {
@@ -145,13 +147,16 @@ abstract  public class ManageRegisterPanel extends AImagePanel {
                     ManagePanel.backToOptionPanel();
                 } else if (e.getSource()==clearButton.label) {
                    clearAll();
+                }else if (e.getSource()==refreshButton.label) {
+                    studentIdLabel.setText(AddInfo.generateID());
                 }
             }
         };
-        exitButton.label.addMouseListener(action);
-        clearButton.label.addMouseListener(action);
+         exitButton.label.addMouseListener(action);
+         clearButton.label.addMouseListener(action);
+         refreshButton.label.addMouseListener(action);
 
-    }
+     }
 
 
     
