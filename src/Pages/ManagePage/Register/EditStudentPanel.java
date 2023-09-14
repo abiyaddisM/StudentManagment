@@ -2,6 +2,7 @@ package Pages.ManagePage.Register;
 
 import BackEnd.AddInfo;
 import BackEnd.DeleteInfo;
+import BackEnd.EditInfo;
 import BackEnd.RowInfoHolder;
 import Pages.ManagePage.ManagePanel;
 
@@ -51,8 +52,8 @@ public class EditStudentPanel extends ManageRegisterPanel {
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource()==saveButton.label) {
                     RowInfoHolder infoHolder=new RowInfoHolder(studentIdLabel.getText(),firstNameTextBox.getString(),lastNameTextBox.getString(),yearComboBox.getText(), "February",dayComboBox.getText(),genderComboBox.getText(),studentBatchComboBox.getText(),emailTextBox.getString(),phoneNoTextBox.getString());
-                    DeleteInfo deleteInfo = new DeleteInfo(studentIdLabel.getText());
-                    deleteInfo.deleteStudent();
+                    EditInfo editInfo = new EditInfo(infoHolder);
+                    editInfo.updateStudent();
                     ManagePanel.backToOptionPanel();
                     clearAll();
                 }

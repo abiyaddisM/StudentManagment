@@ -3,6 +3,7 @@ package Pages;
 import AClass.AImagePanel;
 import AClass.Button.AButton;
 import AClass.Frame.AFrame;
+import BackEnd.LoginVerifcation;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -14,14 +15,15 @@ import java.io.File;
 import java.io.IOException;
 
 public class SettingPanel extends JPanel {
-    AButton groupButton=new AButton("art\\settingPage\\animate\\button\\normalGM.png","art\\settingPage\\animate\\button\\hoverGM.png","art\\settingPage\\animate\\button\\pressGM.png",60,100,0,100);
-    AButton signOutButton=new AButton("art\\settingPage\\animate\\button\\normalSO.png","art\\settingPage\\animate\\button\\hoverSO.png","art\\settingPage\\animate\\button\\pressSO.png",0,60,0,60);
-    AButton exitButton=new AButton("art\\settingPage\\animate\\button\\normalE.png","art\\settingPage\\animate\\button\\hoverE.png","art\\settingPage\\animate\\button\\pressE.png");
+    AButton groupButton=new AButton("art/settingPage/animate/button/normalGM.png","art/settingPage/animate/button/hoverGM.png","art/settingPage/animate/button/pressGM.png",60,100,0,100);
+    AButton signOutButton=new AButton("art/settingPage/animate/button/normalSO.png","art/settingPage/animate/button/hoverSO.png","art/settingPage/animate/button/pressSO.png",0,60,0,60);
+    AButton exitButton=new AButton("art/settingPage/animate/button/normalE.png","art/settingPage/animate/button/hoverE.png","art/settingPage/animate/button/pressE.png");
 
-    AImagePanel settingPage=new AImagePanel("art\\settingPage\\static\\background\\background.png");
+    AImagePanel settingPage=new AImagePanel("art/settingPage/static/background/background.png");
     ALabel textLabel=new ALabel(270);
+    String username;
     public SettingPanel(){
-        textLabel.setText("AbiyAddis");
+        textLabel.setText(username);
         textLabel.label.setFont(font(28));
         setBorder(new EmptyBorder(60,0,0,0));
         settingPage.mainPanel.setBorder(new EmptyBorder(40,0,0,0));
@@ -32,6 +34,9 @@ public class SettingPanel extends JPanel {
         addButtons();
         buttonAction();
         add(settingPage);
+    }
+    public SettingPanel(LoginVerifcation loginVerifcation){
+        this.username = loginVerifcation.username;
     }
     void addButtons(){
         settingPage.addMain(textLabel);
@@ -90,5 +95,8 @@ class ALabel extends JPanel{
     }
     void setText(String text){
         label.setText(text);
+    }
+    public void setUsername(){
+
     }
 }

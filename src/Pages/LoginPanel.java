@@ -11,7 +11,6 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class LoginPanel extends AImagePanel {
@@ -67,6 +66,7 @@ public class LoginPanel extends AImagePanel {
                 LoginVerifcation loginVerifcation = new LoginVerifcation(username, password);
                     if (loginVerifcation.verifyAccount()){
                         ControlPanels.executor.schedule(() -> {
+                            SettingPanel settingPanel = new SettingPanel(loginVerifcation);
                             ControlPanels.showHome();
                         }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
                     }
