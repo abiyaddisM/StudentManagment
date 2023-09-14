@@ -1,9 +1,6 @@
 package BackEnd;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.Random;
 
@@ -17,9 +14,9 @@ public class AddInfo {
         this.infoHolder = infoHolder;
     }
 
-    public void addStudent(){
+    public void addRow(){
         int validationCounter = 0;
-       /* if (validateFirstName()){
+        if (validateFirstName()){
             validationCounter++;
         }
         if (validateLastName()){
@@ -36,31 +33,69 @@ public class AddInfo {
         }
         if (validateGender()){
             validationCounter++;
-        }*/
+        }
+        if  (validateDepartment()){//validate department
+            validationCounter++;
+        }
+        if(validateEmail()){
+            validationCounter++;
+        }
+        if (validatePhoneNumber()){
+            validationCounter++;
+        }
 
-        if (true){
+        if (validationCounter == 9){
             try {
                 Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
 
                 // Insert date of birth into the database
-                String insertSql = "INSERT INTO student (FirstName, LastName, visibleID) VALUES (?,?,?)";
+                String insertSql = "INSERT INTO student (display_id, first_name, last_name, date_of_birth, gender, department_id) VALUES (?,?,?,?,?,?)";
                 PreparedStatement insertStatement = connection.prepareStatement(insertSql);
 
-                String dob = infoHolder.year + "-" + infoHolder.month + "-" + infoHolder.day;
-                // Set the DOB value in the prepared statement
-                insertStatement.setString(1, infoHolder.firstName);
-                insertStatement.setString(2, infoHolder.lastName);
-              /*  insertStatement.setString(3, dob);
-                insertStatement.setString(4, infoHolder.gender);
-                insertStatement.setString(5, infoHolder.phoneNo);
-                insertStatement.setString(6, infoHolder.email);
-                insertStatement.setString(7, infoHolder.department);*/
-                insertStatement.setString(3, generateID());
+                //String dob = infoHolder.year + "-" + infoHolder.month + "-" + infoHolder.day;
+                int year = Integer.parseInt(infoHolder.year);
+                int month = Integer.parseInt(infoHolder.month);
+                int day = Integer.parseInt(infoHolder.day);
+                LocalDate date = LocalDate.of(year, month, day);
 
+                Date dob = Date.valueOf(date);
+                // Set the DOB value in the prepared statement
+                String displayID = generateID();
+                insertStatement.setString(1, displayID );
+                insertStatement.setString(2, infoHolder.firstName);
+                insertStatement.setString(3, infoHolder.lastName);
+                insertStatement.setDate(4, dob);
+                insertStatement.setString(5, infoHolder.gender);
+                insertStatement.setInt(6, 1);
 
                 int rowsInserted = insertStatement.executeUpdate();
 
                 insertStatement.close();
+
+                String selectQuery = "SELECT student_id FROM student WHERE display_id = ?";
+                PreparedStatement selectStatement = connection.prepareStatement(selectQuery);
+                selectStatement.setString(1, displayID);
+                ResultSet resultSet = selectStatement.executeQuery();
+                int ID = 0;
+                if(resultSet.next()) {
+                    ID = resultSet.getInt("student_id");
+                }
+
+                String insertSql2 = "INSERT INTO student_phone_number(student_id, phone_number) VALUES (?,?)";
+                PreparedStatement insertPhoneNumber = connection.prepareStatement(insertSql2);
+
+                insertPhoneNumber.setInt(1, ID);
+                insertPhoneNumber.setString(2, infoHolder.phoneNo);
+                insertPhoneNumber.executeUpdate();
+                insertPhoneNumber.close();
+
+                String insertSql3 = "INSERT INTO student_email(student_id, email) VALUES (?,?)";
+                PreparedStatement insertEmail = connection.prepareStatement(insertSql3);
+                insertEmail.setInt(1, ID);
+                insertEmail.setString(2, infoHolder.email);
+                insertEmail.executeUpdate();
+                insertEmail.close();
+
                 connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -186,6 +221,30 @@ public class AddInfo {
         }
     }
 
+    public boolean validateEmail(){
+        if (infoHolder.email.length() > 0 && infoHolder.email.length() <= 320){
+            if (infoHolder.email.indexOf('a') != -1){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean validatePhoneNumber(){
+        if (infoHolder.phoneNo.matches("[0-9]+")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean validateDepartment(){
+        return true;
+    }
     public static String generateID () {
         final String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // Letters to choose from
         final int NUMBERS_MIN = 1000; // Minimum number value (inclusive)
