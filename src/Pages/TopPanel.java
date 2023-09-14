@@ -76,6 +76,7 @@ public class TopPanel extends AImagePanel {
                 } else if (e.getSource()==settingTab.label) {
                     hideAllExcept(settingTab);
                     ControlPanels.showSettings();
+                    SettingPanel.backToSettings();
                 }
             }
         };
