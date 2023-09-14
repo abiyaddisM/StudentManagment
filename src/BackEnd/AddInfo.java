@@ -1,5 +1,7 @@
 package BackEnd;
 
+import com.sun.security.jgss.GSSUtil;
+
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.Random;
@@ -111,6 +113,7 @@ public class AddInfo {
                 return true; // If a non-letter character is found, return false
             }
         }
+        System.out.println("Invalid first name");
         return false;
     }
 
@@ -118,6 +121,7 @@ public class AddInfo {
         for (char c : infoHolder.lastName.toCharArray()) {
             // Check if the character is not an English letter (either uppercase or lowercase)
             if (!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))) {
+                System.out.println("Invalid last name");
                 return false; // If a non-letter character is found, return false
             }
         }
@@ -137,6 +141,7 @@ public class AddInfo {
             return true;
         }
         else {
+            System.out.println("Invalid Month");
             return false;
         }
     }
@@ -148,6 +153,7 @@ public class AddInfo {
                     return true;
                 case 2:
                     if(Integer.parseInt(infoHolder.day) > 28){
+                        System.out.println("Invalid date");
                         return false;
                     }
                     else {
@@ -157,6 +163,7 @@ public class AddInfo {
                     return true;
                 case 4, 6, 9, 11:
                     if(Integer.parseInt(infoHolder.day) > 30){
+                        System.out.println("Invalid date");
                         return false;
                     }
                     else {
@@ -177,6 +184,7 @@ public class AddInfo {
             }
         }
         else {
+            System.out.println("Invalid date");
             return false;
         }
     }
@@ -186,6 +194,7 @@ public class AddInfo {
             return true;
         }
         else {
+            System.out.println("Invalid gender");
             return false;
         }
     }
@@ -227,10 +236,12 @@ public class AddInfo {
                 return true;
             }
             else{
+                System.out.println("Invalid email");
                 return false;
             }
         }
         else {
+            System.out.println("Invalid email");
             return false;
         }
     }
@@ -239,6 +250,7 @@ public class AddInfo {
         if (infoHolder.phoneNo.matches("[0-9]+")) {
             return true;
         } else {
+            System.out.println("Invalid phone number");
             return false;
         }
     }

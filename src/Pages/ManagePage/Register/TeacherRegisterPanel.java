@@ -1,5 +1,6 @@
 package Pages.ManagePage.Register;
 
+import BackEnd.AddInfo;
 import Pages.ManagePage.ManagePanel;
 import BackEnd.RowInfoHolder;
 
@@ -46,6 +47,8 @@ public class TeacherRegisterPanel extends ManageRegisterPanel{
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource()==saveButton.label) {
                     RowInfoHolder infoHolder=new RowInfoHolder(studentIdLabel.getText(),firstNameTextBox.getString(),lastNameTextBox.getString(),yearComboBox.getText(), monthComboBox.getText(),dayComboBox.getText(),genderComboBox.getText(),studentBatchComboBox.getText(),emailTextBox.getString(),phoneNoTextBox.getString());
+                    AddInfo addInfo = new AddInfo(infoHolder);
+                    addInfo.addRow();
                     ManagePanel.teacherListPanel.addRow(infoHolder);
                     ManagePanel.backToOptionPanel();
                     clearAll();
