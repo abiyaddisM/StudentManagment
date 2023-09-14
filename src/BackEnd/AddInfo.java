@@ -142,7 +142,6 @@ public class AddInfo {
 
             try {
                 Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
-
                 // Insert date of birth into the database
                 String insertSql = "INSERT INTO teacher (display_id, first_name, last_name, date_of_birth, gender, department_id) VALUES (?,?,?,?,?,?)";
                 PreparedStatement insertStatement = connection.prepareStatement(insertSql);
@@ -163,7 +162,7 @@ public class AddInfo {
                 insertStatement.setString(3, infoHolder.lastName);
                 insertStatement.setDate(4, dob);
                 insertStatement.setString(5, infoHolder.gender);
-                insertStatement.setInt(6, 1);
+                insertStatement.setInt(6, getDepartmentID());
 
                 int rowsInserted = insertStatement.executeUpdate();
 
@@ -171,7 +170,7 @@ public class AddInfo {
 
                 String selectQuery = "SELECT teacher_id FROM teacher WHERE display_id = ?";
                 PreparedStatement selectStatement = connection.prepareStatement(selectQuery);
-                selectStatement.setString(getDepartmentID(), displayID);
+                selectStatement.setString(1, displayID);
                 ResultSet resultSet = selectStatement.executeQuery();
                 int ID = 0;
                 if(resultSet.next()) {
@@ -201,6 +200,7 @@ public class AddInfo {
     }
 
     public void addStaff() {
+
         int validationCounter = 0;
         if (validateFirstName()) {
             validationCounter++;
@@ -220,7 +220,7 @@ public class AddInfo {
         if (validateGender()) {
             validationCounter++;
         }
-        if (validateDepartment()) {//validate department
+        if (true) {//validate position
             validationCounter++;
         }
         if (validateEmail()) {
@@ -236,7 +236,7 @@ public class AddInfo {
                 Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
 
                 // Insert date of birth into the database
-                String insertSql = "INSERT INTO teacher (display_id, first_name, last_name, date_of_birth, gender, ) VALUES (?,?,?,?,?,?)";
+                String insertSql = "INSERT INTO staff (display_id, first_name, last_name, date_of_birth, gender, position_id) VALUES (?,?,?,?,?,?)";
                 PreparedStatement insertStatement = connection.prepareStatement(insertSql);
 
                 //String dob = infoHolder.year + "-" + infoHolder.month + "-" + infoHolder.day;
@@ -261,16 +261,16 @@ public class AddInfo {
 
                 insertStatement.close();
 
-                String selectQuery = "SELECT teacher_id FROM teacher WHERE display_id = ?";
+                String selectQuery = "SELECT staff_id FROM staff WHERE display_id = ?";
                 PreparedStatement selectStatement = connection.prepareStatement(selectQuery);
-                selectStatement.setString(getDepartmentID(), displayID);
+                selectStatement.setString(1, displayID);
                 ResultSet resultSet = selectStatement.executeQuery();
                 int ID = 0;
                 if (resultSet.next()) {
-                    ID = resultSet.getInt("teacher_id");
+                    ID = resultSet.getInt("staff_id");
                 }
 
-                String insertSql2 = "INSERT INTO teacher_phone_number(teacher_id, phone_number) VALUES (?,?)";
+                String insertSql2 = "INSERT INTO staff_phone_number(staff_id, phone_number) VALUES (?,?)";
                 PreparedStatement insertPhoneNumber = connection.prepareStatement(insertSql2);
 
                 insertPhoneNumber.setInt(1, ID);
@@ -278,7 +278,7 @@ public class AddInfo {
                 insertPhoneNumber.executeUpdate();
                 insertPhoneNumber.close();
 
-                String insertSql3 = "INSERT INTO teacher_email(teacher_id, email) VALUES (?,?)";
+                String insertSql3 = "INSERT INTO staff_email(staff_id, email) VALUES (?,?)";
                 PreparedStatement insertEmail = connection.prepareStatement(insertSql3);
                 insertEmail.setInt(1, ID);
                 insertEmail.setString(2, infoHolder.email);
