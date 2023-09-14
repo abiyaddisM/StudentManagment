@@ -7,11 +7,38 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class EditStaffPanel extends StaffRegisterPanel{
+public class EditStaffPanel extends ManageRegisterPanel{
     public EditStaffPanel( ) {
         super("art/managmentsPage/edit/static/background/staffEditBackground.png");
         refreshButton.label.setIcon(new ImageIcon("art/managmentsPage/edit/static/background/holder.png"));
+        initializeList();
+        setPlacement();
+        initializeComboBox();
+        addComponents();
+    }
+    @Override
+    void initializeList(){
+        super.initializeList();
+        studentBatchList=new String[]{"Janitor","Guard","Receptionist","Assistant"};
 
+
+    }
+    @Override
+    void addComponents() {
+        addMain(exitButton);
+        addMain(firstNameTextBox);
+        addMain(lastNameTextBox);
+        addMain(emailTextBox);
+        addMain(monthComboBox);
+        addMain(dayComboBox);
+        addMain(yearComboBox);
+        addMain(phoneNoTextBox);
+        addMain(studentBatchComboBox);
+        addMain(genderComboBox);
+        addMain(studentIdLabel);
+        addMain(refreshButton);
+        addMain(clearButton);
+        addMain(saveButton);
     }
     @Override
     void addButtonAction(){
