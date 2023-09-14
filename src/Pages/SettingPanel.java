@@ -14,16 +14,20 @@ import java.io.File;
 import java.io.IOException;
 
 public class SettingPanel extends JPanel {
-    AButton groupButton=new AButton("art\\settingPage\\animate\\button\\normalGM.png","art\\settingPage\\animate\\button\\hoverGM.png","art\\settingPage\\animate\\button\\pressGM.png",60,100,0,100);
-    AButton signOutButton=new AButton("art\\settingPage\\animate\\button\\normalSO.png","art\\settingPage\\animate\\button\\hoverSO.png","art\\settingPage\\animate\\button\\pressSO.png",0,60,0,60);
-    AButton exitButton=new AButton("art\\settingPage\\animate\\button\\normalE.png","art\\settingPage\\animate\\button\\hoverE.png","art\\settingPage\\animate\\button\\pressE.png");
+    static AButton exitGroupButton=new AButton("art/managmentsPage/register/animated/exitButton/normalE.png","art/managmentsPage/register/animated/exitButton/hoverE.png","art/managmentsPage/register/animated/exitButton/pressE.png",0,0,0,230);
 
-    AImagePanel settingPage=new AImagePanel("art\\settingPage\\static\\background\\background.png");
-    ALabel textLabel=new ALabel(270);
+    static AButton groupButton=new AButton("art\\settingPage\\animate\\button\\normalGM.png","art\\settingPage\\animate\\button\\hoverGM.png","art\\settingPage\\animate\\button\\pressGM.png",60,100,0,100);
+    static AButton signOutButton=new AButton("art\\settingPage\\animate\\button\\normalSO.png","art\\settingPage\\animate\\button\\hoverSO.png","art\\settingPage\\animate\\button\\pressSO.png",0,60,0,60);
+    static AButton exitButton=new AButton("art\\settingPage\\animate\\button\\normalE.png","art\\settingPage\\animate\\button\\hoverE.png","art\\settingPage\\animate\\button\\pressE.png");
+
+    static   AImagePanel settingPage=new AImagePanel("art\\settingPage\\static\\background\\background.png");
+    static  AImagePanel groupMemberImage=new AImagePanel("art\\settingPage\\static\\background\\groupMembers.png");
+    static   ALabel textLabel=new ALabel(270);
     public SettingPanel(){
         textLabel.setText("AbiyAddis");
         textLabel.label.setFont(font(28));
-        setBorder(new EmptyBorder(60,0,0,0));
+
+        setBorder(new EmptyBorder(20,0,0,0));
         settingPage.mainPanel.setBorder(new EmptyBorder(40,0,0,0));
         settingPage.mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,0,18));
         setVisible(false);
@@ -31,7 +35,12 @@ public class SettingPanel extends JPanel {
         setOpaque(false);
         addButtons();
         buttonAction();
+
+        groupMemberImage.setPanelOff();
+        groupMemberImage.addMain(exitGroupButton);
+
         add(settingPage);
+        add(groupMemberImage);
     }
     void addButtons(){
         settingPage.addMain(textLabel);
@@ -45,18 +54,23 @@ public class SettingPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(e.getSource()==groupButton.label){
+                    settingPage.setPanelOff();
+                    groupMemberImage.setPanelOn();
 
                 } else if (e.getSource()==signOutButton.label) {
 
                 } else if (e.getSource()==exitButton.label) {
                     AFrame.frame.dispose();
                     System.exit(0);
+                } else if (e.getSource()==exitGroupButton.label) {
+                    backToSettings();
                 }
             }
         };
         groupButton.label.addMouseListener(action);
         signOutButton.label.addMouseListener(action);
         exitButton.label.addMouseListener(action);
+        exitGroupButton.label.addMouseListener(action);
     } Font font(float size){
 
         try
@@ -70,9 +84,13 @@ public class SettingPanel extends JPanel {
             return null;
         }
 
+
     }
 
-
+public static void backToSettings(){
+        settingPage.setPanelOn();
+        groupMemberImage.setPanelOff();
+}
 }
 class ALabel extends JPanel{
     JLabel label=new JLabel();
