@@ -171,7 +171,7 @@ public class AddInfo {
 
                 String selectQuery = "SELECT teacher_id FROM teacher WHERE display_id = ?";
                 PreparedStatement selectStatement = connection.prepareStatement(selectQuery);
-                selectStatement.setString(1, displayID);
+                selectStatement.setString(getDepartmentID(), displayID);
                 ResultSet resultSet = selectStatement.executeQuery();
                 int ID = 0;
                 if(resultSet.next()) {
@@ -320,6 +320,30 @@ public class AddInfo {
                 return 11;
             case "december":
                 return 12;
+            case "1":
+                return 1;
+            case "2":
+                return 2;
+            case "3":
+                return 3;
+            case "4":
+                return 4;
+            case "5":
+                return 5;
+            case "6":
+                return 6;
+            case "7":
+                return 7;
+            case "8":
+                return 8;
+            case "9":
+                return 9;
+            case "10":
+                return 10;
+            case "11":
+                return 11;
+            case "12":
+                return 12;
             default:
                 throw new IllegalArgumentException("Invalid month: " + monthString);
         }
@@ -350,7 +374,12 @@ public class AddInfo {
         }
     }
     public boolean validateDepartment(){
-        return true;
+        if (infoHolder.department.toLowerCase().equals("software engineer") || infoHolder.department.toLowerCase().equals("computer science") || infoHolder.department.toLowerCase().equals("data science") || infoHolder.department.toLowerCase().equals("Artificial Intelligence")){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     public static String generateID () {
         final String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // Letters to choose from
@@ -369,6 +398,22 @@ public class AddInfo {
         String id = String.format("%c%c%04d", letter1, letter2, randomNumber);
 
         return id;
+    }
+
+    public int getDepartmentID(){
+        if (infoHolder.department.toLowerCase().equals("software engineer")){
+            return 1;
+        }
+        else if(infoHolder.department.toLowerCase().equals("computer science")){
+            return 2;
+        }
+        else if(infoHolder.department.toLowerCase().equals("data science")){
+            return 3;
+        }
+        else if(infoHolder.department.toLowerCase().equals("Artificial Intelligence")){
+            return 4;
+        }
+        return 0;
     }
 
 }

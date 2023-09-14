@@ -37,7 +37,7 @@ public class StudentRegisterPanel extends ManageRegisterPanel{
     @Override
     void initializeList(){
        super.initializeList();
-        studentBatchList=new String[]{"DBR2202","DBR2102","DBR2002","DBR1902"};
+        studentBatchList=new String[]{"Software Engineer","Computer Science","Data Science","Artificial Intelligence"};
 
     }
     @Override

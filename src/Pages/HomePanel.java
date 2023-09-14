@@ -2,6 +2,7 @@ package Pages;
 import AClass.*;
 import AClass.Button.AButton;
 import BackEnd.ControlPanels;
+import BackEnd.NumberInfo;
 import Pages.ManagePage.ManagePanel;
 
 import javax.swing.border.EmptyBorder;
@@ -81,11 +82,12 @@ public class HomePanel extends AImagePanel {
         statsPanel.addMain(totalStaffImage);
     }
     void setNumberInfo(){
-        amountOfStudent.setText("2,120/5,238");
+        NumberInfo numberInfo = new NumberInfo();
+        amountOfStudent.setText(Integer.toString(numberInfo.getStudentNumberInfo()));
         amountOfStudent.mainLabel.setBorder(new EmptyBorder(0,0,17,0));
         amountOfStudent.setColor(0xD1CEE7);
 
-        amountOfTeacher.setText("155/350");
+        amountOfTeacher.setText(Integer.toString(numberInfo.getTeacherNumberInfo()));
         amountOfTeacher.mainLabel.setBorder(new EmptyBorder(0,0,17,0));
         amountOfTeacher.setColor(0xD1CEE7);
 

@@ -26,7 +26,7 @@ public class TeacherListPanel extends ManageListPanel{
                     String id = row.infoHolder.id;
                     row.setPanelOff();
                     DeleteInfo deleteInfo = new DeleteInfo(id);
-                    deleteInfo.deleteStudent();
+                    deleteInfo.deleteTeacher();
                 }
             });
         }
