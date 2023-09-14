@@ -102,22 +102,7 @@ abstract public class ManageListPanel extends AImagePanel {
         }
     }
     int I;
-    void deleteRow(){
-        for (int i = 0; i < tableRows.size(); i++) {
-           I = i;
-            ATableRow row = tableRows.get(i);
-
-            row.deleteButton.label.addMouseListener(new MouseAdapter() {
-               @Override
-               public void mouseClicked(MouseEvent e) {
-                   String id = row.infoHolder.id;
-                   row.setPanelOff();
-                   DeleteInfo deleteInfo = new DeleteInfo(id);
-                   deleteInfo.deleteStudent();
-               }
-           });
-        }
-    }
+    abstract void deleteRow();
   abstract void editInfo();
 
 

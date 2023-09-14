@@ -71,7 +71,7 @@ public class AddInfo {
                 insertStatement.setString(5, infoHolder.gender);
                 insertStatement.setInt(6, 1);
 
-                int rowsInserted = insertStatement.executeUpdate();
+               insertStatement.executeUpdate();
 
                 insertStatement.close();
 
