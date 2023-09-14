@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class StudentRegisterPanel extends ManageRegisterPanel{
+
     public StudentRegisterPanel(String file) {
         super(file);
         initializeList();
@@ -48,7 +49,7 @@ public class StudentRegisterPanel extends ManageRegisterPanel{
                if (e.getSource()==saveButton.label) {
                    RowInfoHolder infoHolder=new RowInfoHolder(studentIdLabel.getText(),firstNameTextBox.getString(),lastNameTextBox.getString(),yearComboBox.getText(), monthComboBox.getText(),dayComboBox.getText(),genderComboBox.getText(),studentBatchComboBox.getText(),emailTextBox.getString(),phoneNoTextBox.getString());
                     AddInfo addInfo = new AddInfo(infoHolder);
-                    addInfo.addRow();
+                    addInfo.addStudent();
                     ManagePanel.studentListPanel.addRow(infoHolder);
                     ManagePanel.backToOptionPanel();
                     clearAll();

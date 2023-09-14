@@ -47,8 +47,8 @@ public class StaffRegisterPanel extends ManageRegisterPanel {
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource()==saveButton.label) {
                     RowInfoHolder infoHolder=new RowInfoHolder(studentIdLabel.getText(),firstNameTextBox.getString(),lastNameTextBox.getString(),yearComboBox.getText(), monthComboBox.getText(),dayComboBox.getText(),genderComboBox.getText(),studentBatchComboBox.getText(),emailTextBox.getString(),phoneNoTextBox.getString());
-                    AddInfo addInfo = new AddInfo(infoHolder);
-                    addInfo.addRow();
+                   /* AddInfo addInfo = new AddInfo(infoHolder);
+                    addInfo.addRow();*/
                     infoHolder.display();
                     ManagePanel.staffListPanel.addRow(infoHolder);
                     ManagePanel.backToOptionPanel();
