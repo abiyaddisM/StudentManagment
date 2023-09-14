@@ -10,11 +10,11 @@ import java.io.File;
 import java.io.IOException;
 
 public class ATableRow extends AImagePanel {
-    private ALabel idText=new ALabel(125);
-    private ALabel nameText=new ALabel(164);
-    private ALabel yearText=new ALabel(119);
-    private ALabel genderText=new ALabel(95);
-    private ALabel placeText=new ALabel(140);
+    public ALabel idText=new ALabel(125);
+    public ALabel nameText=new ALabel(164);
+    public ALabel yearText=new ALabel(119);
+    public ALabel genderText=new ALabel(95);
+    public ALabel placeText=new ALabel(140);
     public RowInfoHolder infoHolder;
     public AButton editButton=new AButton("art/managmentsPage/lists/animated/editButton/normal.png","art/managmentsPage/lists/animated/editButton/hover.png",
             "art/managmentsPage/lists/animated/editButton/press.png",0,40,0,0);
@@ -33,7 +33,7 @@ public class ATableRow extends AImagePanel {
         addButton();
     }
 
-    private void initializeUI(RowInfoHolder infoHolder) {
+    public void initializeUI(RowInfoHolder infoHolder) {
 
         idText.label.setFont(font(13));
         idText.label.setForeground(new Color(0xFFCFD5DE, true));

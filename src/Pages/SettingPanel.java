@@ -3,6 +3,7 @@ package Pages;
 import AClass.AImagePanel;
 import AClass.Button.AButton;
 import AClass.Frame.AFrame;
+import BackEnd.LoginVerifcation;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -14,6 +15,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class SettingPanel extends JPanel {
+
+   
+
     static AButton exitGroupButton=new AButton("art/managmentsPage/register/animated/exitButton/normalE.png","art/managmentsPage/register/animated/exitButton/hoverE.png","art/managmentsPage/register/animated/exitButton/pressE.png",0,0,0,230);
 
     static AButton groupButton=new AButton("art\\settingPage\\animate\\button\\normalGM.png","art\\settingPage\\animate\\button\\hoverGM.png","art\\settingPage\\animate\\button\\pressGM.png",60,100,0,100);
@@ -23,8 +27,9 @@ public class SettingPanel extends JPanel {
     static   AImagePanel settingPage=new AImagePanel("art\\settingPage\\static\\background\\background.png");
     static  AImagePanel groupMemberImage=new AImagePanel("art\\settingPage\\static\\background\\groupMembers.png");
     static   ALabel textLabel=new ALabel(270);
+
     public SettingPanel(){
-        textLabel.setText("AbiyAddis");
+        textLabel.setText(username);
         textLabel.label.setFont(font(28));
 
         setBorder(new EmptyBorder(20,0,0,0));
@@ -41,6 +46,9 @@ public class SettingPanel extends JPanel {
 
         add(settingPage);
         add(groupMemberImage);
+    }
+    public SettingPanel(LoginVerifcation loginVerifcation){
+        this.username = loginVerifcation.username;
     }
     void addButtons(){
         settingPage.addMain(textLabel);
@@ -108,5 +116,8 @@ class ALabel extends JPanel{
     }
     void setText(String text){
         label.setText(text);
+    }
+    public void setUsername(){
+
     }
 }

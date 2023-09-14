@@ -9,7 +9,7 @@ public class LoginVerifcation {
     static String jdbcUsername = "root";
     static String jdbcPassword = "password";
 
-    String username, password;
+    public String username, password;
 
     public LoginVerifcation(String username, String password){
         this.username = username;

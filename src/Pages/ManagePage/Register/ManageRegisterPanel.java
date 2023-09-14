@@ -51,7 +51,10 @@ abstract  public class ManageRegisterPanel extends AImagePanel {
 
     }
    abstract void addComponents();
-
+     int index;
+public  void holdIndex(int index){
+    this.index=index;
+}
 
 
     void initializeComboBox() {

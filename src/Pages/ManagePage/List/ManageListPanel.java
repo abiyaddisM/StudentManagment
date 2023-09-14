@@ -26,7 +26,7 @@ abstract public class ManageListPanel extends AImagePanel {
 
 
     ArrayList<ATableRow> tableRows = new ArrayList<ATableRow>();
-    ArrayList<ATableRow> newRows = new ArrayList<ATableRow>();
+
 
     public ManageListPanel(String file, ArrayList<RowInfoHolder> infoHolder){
         super(file);
@@ -104,6 +104,23 @@ abstract public class ManageListPanel extends AImagePanel {
     int I;
     abstract void deleteRow();
   abstract void editInfo();
+  public void updateInfo(int i,RowInfoHolder infoHolder){
+      tableRows.get(i).infoHolder.id=infoHolder.id;
+      tableRows.get(i).infoHolder.firstName=infoHolder.firstName;
+      tableRows.get(i).infoHolder.lastName=infoHolder.lastName;
+      tableRows.get(i).infoHolder.year=infoHolder.year;
+      tableRows.get(i).infoHolder.month=infoHolder.month;
+      tableRows.get(i).infoHolder.day=infoHolder.day;
+      tableRows.get(i).infoHolder.phoneNo=infoHolder.phoneNo;
+      tableRows.get(i).infoHolder.department=infoHolder.department;
+      tableRows.get(i).infoHolder.gender=infoHolder.gender;
+      tableRows.get(i).infoHolder.email=infoHolder.email;
+
+      tableRows.get(i).initializeUI(infoHolder);
+      AFrame.frame.repaint();
+
+
+  }
 
 
     void backToOptionPanel(){

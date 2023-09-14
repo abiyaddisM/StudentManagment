@@ -69,7 +69,7 @@ public class AddInfo {
                 insertStatement.setString(3, infoHolder.lastName);
                 insertStatement.setDate(4, dob);
                 insertStatement.setString(5, infoHolder.gender);
-                insertStatement.setInt(6, 1);
+                insertStatement.setInt(6, getDepartmentID());
 
                insertStatement.executeUpdate();
 
@@ -198,8 +198,98 @@ public class AddInfo {
                 e.printStackTrace();
             }
         }
+    }
 
+    public void addStaff() {
+        int validationCounter = 0;
+        if (validateFirstName()) {
+            validationCounter++;
+        }
+        if (validateLastName()) {
+            validationCounter++;
+        }
+        if (validateYear()) {
+            validationCounter++;
+        }
+        if (validateMonth()) {
+            validationCounter++;
+        }
+        if (validateDay()) {
+            validationCounter++;
+        }
+        if (validateGender()) {
+            validationCounter++;
+        }
+        if (validateDepartment()) {//validate department
+            validationCounter++;
+        }
+        if (validateEmail()) {
+            validationCounter++;
+        }
+        if (validatePhoneNumber()) {
+            validationCounter++;
+        }
 
+        if (validationCounter == 9) {
+
+            try {
+                Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
+
+                // Insert date of birth into the database
+                String insertSql = "INSERT INTO teacher (display_id, first_name, last_name, date_of_birth, gender, ) VALUES (?,?,?,?,?,?)";
+                PreparedStatement insertStatement = connection.prepareStatement(insertSql);
+
+                //String dob = infoHolder.year + "-" + infoHolder.month + "-" + infoHolder.day;
+                int year = Integer.parseInt(infoHolder.year);
+                int month = convertMonthStringToInt(infoHolder.month);
+                String monthString = String.format("%02d", month);
+                int day = Integer.parseInt(infoHolder.day);
+                String dobString = year + "-" + month + "-" + day;
+                LocalDate date = LocalDate.of(year, month, day);
+
+                Date dob = Date.valueOf(date);
+                // Set the DOB value in the prepared statement
+                String displayID = generateID();
+                insertStatement.setString(1, displayID);
+                insertStatement.setString(2, infoHolder.firstName);
+                insertStatement.setString(3, infoHolder.lastName);
+                insertStatement.setDate(4, dob);
+                insertStatement.setString(5, infoHolder.gender);
+                insertStatement.setInt(6, 1);
+
+                int rowsInserted = insertStatement.executeUpdate();
+
+                insertStatement.close();
+
+                String selectQuery = "SELECT teacher_id FROM teacher WHERE display_id = ?";
+                PreparedStatement selectStatement = connection.prepareStatement(selectQuery);
+                selectStatement.setString(getDepartmentID(), displayID);
+                ResultSet resultSet = selectStatement.executeQuery();
+                int ID = 0;
+                if (resultSet.next()) {
+                    ID = resultSet.getInt("teacher_id");
+                }
+
+                String insertSql2 = "INSERT INTO teacher_phone_number(teacher_id, phone_number) VALUES (?,?)";
+                PreparedStatement insertPhoneNumber = connection.prepareStatement(insertSql2);
+
+                insertPhoneNumber.setInt(1, ID);
+                insertPhoneNumber.setString(2, infoHolder.phoneNo);
+                insertPhoneNumber.executeUpdate();
+                insertPhoneNumber.close();
+
+                String insertSql3 = "INSERT INTO teacher_email(teacher_id, email) VALUES (?,?)";
+                PreparedStatement insertEmail = connection.prepareStatement(insertSql3);
+                insertEmail.setInt(1, ID);
+                insertEmail.setString(2, infoHolder.email);
+                insertEmail.executeUpdate();
+                insertEmail.close();
+
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
     public boolean validateFirstName(){
         for (char c : infoHolder.firstName.toCharArray()) {

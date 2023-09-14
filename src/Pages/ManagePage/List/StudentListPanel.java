@@ -38,6 +38,7 @@ public class StudentListPanel extends ManageListPanel {
             I = i;
             ATableRow row = tableRows.get(i);
 
+            int finalI = i;
             row.editButton.label.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -45,8 +46,10 @@ public class StudentListPanel extends ManageListPanel {
                     ManagePanel.backToOptionPanel();
                     ManagePanel.hideAllExcept(ManagePanel.editStudentPanel);
                     ManagePanel.editStudentPanel.setInformation(row.infoHolder);
+                    ManagePanel.editStudentPanel.holdIndex(finalI);
                 }
             });
         }
     }
+
 }
