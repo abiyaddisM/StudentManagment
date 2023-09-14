@@ -2,7 +2,9 @@ package Pages.ManagePage;
 
 import AClass.Button.AButton;
 import AClass.AImagePanel;
+import BackEnd.AddInfo;
 import Pages.ManagePage.ManagePanel;
+import Pages.ManagePage.Register.ManageRegisterPanel;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -62,6 +64,7 @@ public class ManageOptionPanel extends AImagePanel {
                     ManagePanel.hideAllExcept(ManagePanel.staffListPanel);
                 } else if (e.getSource()==studentAddButton.label) {
                     ManagePanel.hideAllExcept(ManagePanel.studentManageRegisterPanel);
+//                    ManageRegisterPanel.studentIdLabel.setText(AddInfo.generateID());
                 } else if (e.getSource()==teacherAddButton.label) {
                     ManagePanel.hideAllExcept(ManagePanel.teacherRegisterPanel);
                 } else if (e.getSource()==staffAddButton.label) {

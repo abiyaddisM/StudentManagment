@@ -15,7 +15,7 @@ import java.awt.event.MouseEvent;
 
 abstract  public class ManageRegisterPanel extends AImagePanel {
 
-//a
+
     String monthList[];
     String dayList[]=new String[31];
     String yearList[]=new String[100];
@@ -147,14 +147,19 @@ abstract  public class ManageRegisterPanel extends AImagePanel {
                     ManagePanel.backToOptionPanel();
                 } else if (e.getSource()==clearButton.label) {
                    clearAll();
+
                 }else if (e.getSource()==refreshButton.label) {
+
                     studentIdLabel.setText(AddInfo.generateID());
                 }
             }
         };
-         exitButton.label.addMouseListener(action);
-         clearButton.label.addMouseListener(action);
-         refreshButton.label.addMouseListener(action);
+
+
+        exitButton.label.addMouseListener(action);
+        clearButton.label.addMouseListener(action);
+        refreshButton.label.addMouseListener(action);
+
 
      }
 

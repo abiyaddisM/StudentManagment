@@ -63,7 +63,7 @@ public class AddInfo {
 
                 Date dob = Date.valueOf(date);
                 // Set the DOB value in the prepared statement
-                String displayID = generateID();
+                String displayID = infoHolder.id;
                 insertStatement.setString(1, displayID );
                 insertStatement.setString(2, infoHolder.firstName);
                 insertStatement.setString(3, infoHolder.lastName);

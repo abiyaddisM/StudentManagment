@@ -15,6 +15,7 @@ public class Main {
         TopPanel topPanel=new TopPanel("art/topBar/static/background.png");
         HomePanel homePanel=new HomePanel("art/homePage/static/background/background1.png");
         ManagePanel managePanel=new ManagePanel();
+        SettingPanel settingPanel=new SettingPanel();
         AFrame frame=new AFrame();
         frame.add(titleBar);
         frame.add(loginPanel);
@@ -22,6 +23,7 @@ public class Main {
         frame.add(topPanel);
         frame.add((homePanel));
         frame.add(managePanel);
+        frame.add(settingPanel);
 
         ControlPanels controlPanels=new ControlPanels();
         ControlPanels.setLogin(loginPanel);
@@ -29,5 +31,6 @@ public class Main {
         ControlPanels.setTop(topPanel);
         ControlPanels.setHome(homePanel);
         ControlPanels.setManage(managePanel);
+        ControlPanels.setSettings(settingPanel);
     }
 }
