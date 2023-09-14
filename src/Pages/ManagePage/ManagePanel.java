@@ -137,9 +137,46 @@ public class ManagePanel extends JPanel {
     }
     static void getTeacherInfoFromDatabase(){
         //Connect the sql here and put the data of teachers here.
-        for (int i = 0; i < 7; i++) {
-            teacherInfoHolders.add(new RowInfoHolder("0Q"+i,"Abiy","Addis","1997","April","2","Male","Students","abiy@gmail.com","0980633711"));
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
+
+            String selectSql = "SELECT teacher.first_name, teacher.last_name, teacher.date_of_birth, teacher.display_id,\n" +
+                    "                    teacher.gender, teacher_email.email, teacher_phone_number.phone_number, department.department_name\n" +
+                    "                    FROM teacher\n" +
+                    "                    LEFT JOIN teacher_email ON teacher.teacher_id = teacher_email.teacher_id\n" +
+                    "                    LEFT JOIN teacher_phone_number ON teacher.teacher_id = teacher_phone_number.teacher_id\n" +
+                    "                    LEFT JOIN department ON teacher.department_id = department.department_id;";
+
+            PreparedStatement selectStatement = connection.prepareStatement(selectSql);
+            ResultSet resultSet = selectStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
+                String displayID = resultSet.getString("display_id");
+                String gender = resultSet.getString("gender");
+                String emailAddress = resultSet.getString("email");
+                String phoneNumber = resultSet.getString("phone_number");
+                String departmentName = resultSet.getString("department_name");
+
+                Date sqlDate = resultSet.getDate("date_of_birth");
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(sqlDate);
+
+                String year = Integer.toString(calendar.get(Calendar.YEAR));
+                String month = Integer.toString(calendar.get(Calendar.MONTH) + 1); // Adding 1 because months are zero-based
+                String day = Integer.toString(calendar.get(Calendar.DAY_OF_MONTH));
+
+
+                teacherInfoHolders.add(new RowInfoHolder(displayID,firstName,lastName,year,month,day,gender,departmentName,emailAddress,phoneNumber));
+            }
+            resultSet.close();
+            selectStatement.close();
+            connection.close();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
+
 
     }
     static void getStaffInfoFromDatabase(){
