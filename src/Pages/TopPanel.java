@@ -2,6 +2,7 @@ package Pages;
 import AClass.*;
 import AClass.Button.ATab;
 import BackEnd.ControlPanels;
+import Pages.CoursePage.CoursePanel;
 import Pages.ManagePage.ManagePanel;
 
 import javax.swing.border.EmptyBorder;
@@ -69,6 +70,7 @@ public class TopPanel extends AImagePanel {
                 } else if (e.getSource()==courseTab.label) {
                     hideAllExcept(courseTab);
                     ControlPanels.showCourse();
+                    CoursePanel.hideAllExcept(CoursePanel.optionPanel);
                 } else if (e.getSource()==manageTab.label) {
                     hideAllExcept(manageTab);
                     ControlPanels.showManage(0);
