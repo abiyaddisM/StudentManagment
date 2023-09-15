@@ -91,7 +91,7 @@ public class HomePanel extends AImagePanel {
         amountOfTeacher.mainLabel.setBorder(new EmptyBorder(0,0,17,0));
         amountOfTeacher.setColor(0xD1CEE7);
 
-        amountOfStaff.setText("456/677");
+        amountOfStaff.setText(Integer.toString(numberInfo.getStaffNumberInfo()));
         amountOfStaff.mainLabel.setBorder(new EmptyBorder(0,0,17,0));
         amountOfStaff.setColor(0xD1CEE7);
     }

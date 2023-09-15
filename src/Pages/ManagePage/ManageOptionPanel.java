@@ -4,6 +4,7 @@ import AClass.AImageLabel;
 import AClass.Button.AButton;
 import AClass.AImagePanel;
 import BackEnd.AddInfo;
+import BackEnd.NumberInfo;
 import Pages.ManagePage.ManagePanel;
 import Pages.ManagePage.Register.ManageRegisterPanel;
 
@@ -49,13 +50,14 @@ public class ManageOptionPanel extends AImagePanel {
 
     }
     void setNumberInfo(){
-        amountOfStudent.setText("2,120/5,238");
+        NumberInfo numberInfo = new NumberInfo();
+        amountOfStudent.setText(Integer.toString(numberInfo.getStudentNumberInfo()));
         amountOfStudent.setColor(0xD1CEE7);
 
-        amountOfTeacher.setText("155/350");
+        amountOfTeacher.setText(Integer.toString(numberInfo.getTeacherNumberInfo()));
         amountOfTeacher.setColor(0xD1CEE7);
 
-        amountOfStaff.setText("456/677");
+        amountOfStaff.setText(Integer.toString(numberInfo.getStaffNumberInfo()));
         amountOfStaff.setColor(0xD1CEE7);
     }
     void addButtons(){

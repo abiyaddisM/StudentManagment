@@ -40,4 +40,21 @@ public class NumberInfo {
         }
         return rowCount;
     }
+
+    public int getStaffNumberInfo(){
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
+            Statement statement = connection.createStatement();
+
+            String query = "SELECT COUNT(*) FROM staff";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            if (resultSet.next()) {
+                rowCount = resultSet.getInt(1); // Get the count from the first (and only) column
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return rowCount;
+    }
 }
