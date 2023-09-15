@@ -6,8 +6,8 @@ public class RememberMe {
     static String jdbcUrl = "jdbc:mysql://localhost:3306/school_management";
     static String jdbcUsername = "root";
     static String jdbcPassword = "password";
-    boolean checkBoxValue;
-    public boolean isRememberMeChecked(){
+    static  boolean  checkBoxValue;
+    public static boolean isRememberMeChecked(){
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
 
@@ -25,7 +25,7 @@ public class RememberMe {
         return checkBoxValue;
     }
 
-    public void updateCheckBoxValue(Boolean isChecked){
+    public static void updateCheckBoxValue(Boolean isChecked){
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
 
@@ -39,6 +39,8 @@ public class RememberMe {
                 preparedStatement.setBoolean(1, false);
             }
             preparedStatement.executeUpdate();
+            System.out.println(isChecked);
+
         }catch (SQLException e){
             e.printStackTrace();
         }

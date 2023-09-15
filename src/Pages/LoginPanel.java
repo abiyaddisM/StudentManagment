@@ -6,6 +6,7 @@ import AClass.Button.AStringButton;
 import AClass.TextArea.ATextBox;
 import BackEnd.ControlPanels;
 import BackEnd.LoginVerifcation;
+import BackEnd.RememberMe;
 
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -14,7 +15,7 @@ import java.awt.event.MouseEvent;
 import java.util.concurrent.TimeUnit;
 
 public class LoginPanel extends AImagePanel {
-    static boolean state=true;
+
 
    private AImageLabel loginImage=new AImageLabel("art/loginPage/comp/loginIcon.png",61,163,36,163);//The login image at the top
     private AImageLabel usernameImage=new AImageLabel("art/loginPage/comp/userAndPass/username.png",0,0,5,0);//The "username" text above the text box's
@@ -38,6 +39,7 @@ public class LoginPanel extends AImagePanel {
         addLoginbuttonAction();
         addSignUpButtonAction();
         mainPanel.setBorder(new EmptyBorder(0,28,0,28));
+        setPanelOff();
 
     }
     void addToPanel(){
@@ -67,6 +69,8 @@ public class LoginPanel extends AImagePanel {
                 LoginVerifcation loginVerifcation = new LoginVerifcation(username, password);
                     if (loginVerifcation.verifyAccount()){
                         ControlPanels.executor.schedule(() -> {
+                            RememberMe.updateCheckBoxValue(checkBox.getState());
+                            SettingPanel.addUsername(username);
                             ControlPanels.showHome();
                         }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
                     }
@@ -82,6 +86,8 @@ public class LoginPanel extends AImagePanel {
                 usernameBox.textLabel.setText("");
                 passwordBox.textLabel.setText("");
                 ControlPanels.showSignUp();
+
+
             }
         });
     }

@@ -50,8 +50,7 @@ public class StaffRegisterPanel extends ManageRegisterPanel {
                     AddInfo addInfo = new AddInfo(infoHolder);
                     addInfo.addStaff();
                     infoHolder.display();
-                    ManagePanel.staffListPanel.addRow(infoHolder);
-                    ManagePanel.backToOptionPanel();
+
                     clearAll();
                 }
             }

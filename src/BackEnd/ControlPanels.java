@@ -12,7 +12,7 @@ public class ControlPanels {
     public static ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 
 
-    private static Component login, signUp, top,home, course, manage, settings;
+    public static Component login, signUp, top,home, course, manage, settings;
     public ControlPanels(Component login, Component signUp, Component top,Component home, Component settings, Component manage, Component course) {
         ControlPanels.login = login;
         ControlPanels.signUp = signUp;
@@ -22,9 +22,7 @@ public class ControlPanels {
         ControlPanels.manage = manage;
         ControlPanels.course = course;
     }
-    public ControlPanels(){
-        this(new JLabel(),new JLabel(),new JLabel(),new JLabel(),new JLabel(),new JLabel(),new JLabel());
-    }
+
 
     public static void setLogin(Component login) {
         ControlPanels.login = login;
@@ -54,7 +52,7 @@ public class ControlPanels {
     }
 
 
-    private static void hideAllExcept(Component component) {
+    public static void hideAllExcept(Component component) {
         Component[] components = {login, signUp, top,home, settings, manage, course};
         for (Component c : components) {
             if (c != null && c != component) {
@@ -62,7 +60,7 @@ public class ControlPanels {
             }
         }
     }
-    private static void hideAllExcept(Component component,Component component1) {
+    public static void hideAllExcept(Component component,Component component1) {
         Component[] components = {login, signUp, top,home, settings, manage, course};
         for (Component c : components) {
             if (c != null && c != component && c!=component1) {

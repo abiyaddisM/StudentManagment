@@ -40,9 +40,9 @@ public class HomePanel extends AImagePanel {
     private AButton aIButton=new AButton("art/homePage/animate/department/normalAI.png","art/homePage/animate/department/hoverAI.png","art/homePage/animate/department/pressAI.png");
 
 
-    AImageLabel amountOfStudent=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,30);
-    AImageLabel amountOfTeacher=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,30);
-    AImageLabel amountOfStaff=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,30);
+    static AImageLabel amountOfStudent=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,30);
+    static AImageLabel amountOfTeacher=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,30);
+    static  AImageLabel amountOfStaff=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,30);
 
 
 
@@ -58,7 +58,7 @@ public class HomePanel extends AImagePanel {
         addStatsPanel();
         addSchoolYearPanel();
         addButtonAction();
-        setVisible(false);
+        setPanelOff();
     }
     void addPanel(){
      addMain(aboutUsPanel);
@@ -82,17 +82,17 @@ public class HomePanel extends AImagePanel {
         totalStaffImage.addMain(totalStaffButton);
         statsPanel.addMain(totalStaffImage);
     }
-    void setNumberInfo(){
-        NumberInfo numberInfo = new NumberInfo();
-        amountOfStudent.setText(Integer.toString(numberInfo.getStudentNumberInfo()));
+   static public void setNumberInfo(){
+
+        amountOfStudent.setText(Integer.toString(NumberInfo.getStudentNumberInfo()));
         amountOfStudent.mainLabel.setBorder(new EmptyBorder(0,0,17,0));
         amountOfStudent.setColor(0xD1CEE7);
 
-        amountOfTeacher.setText(Integer.toString(numberInfo.getTeacherNumberInfo()));
+        amountOfTeacher.setText(Integer.toString(NumberInfo.getTeacherNumberInfo()));
         amountOfTeacher.mainLabel.setBorder(new EmptyBorder(0,0,17,0));
         amountOfTeacher.setColor(0xD1CEE7);
 
-        amountOfStaff.setText(Integer.toString(numberInfo.getStaffNumberInfo()));
+        amountOfStaff.setText(Integer.toString(NumberInfo.getStaffNumberInfo()));
         amountOfStaff.mainLabel.setBorder(new EmptyBorder(0,0,17,0));
         amountOfStaff.setColor(0xD1CEE7);
     }

@@ -6,9 +6,9 @@ public class NumberInfo {
     static String jdbcUrl = "jdbc:mysql://localhost:3306/school_management";
     static String jdbcUsername = "root";
     static String jdbcPassword = "password";
-    int rowCount;
+  static   int rowCount;
 
-    public int getStudentNumberInfo(){
+    public static int getStudentNumberInfo(){
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
             Statement statement = connection.createStatement();
@@ -24,7 +24,7 @@ public class NumberInfo {
         }
         return rowCount;
     }
-    public int getTeacherNumberInfo(){
+    public static int getTeacherNumberInfo(){
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
             Statement statement = connection.createStatement();
@@ -41,7 +41,7 @@ public class NumberInfo {
         return rowCount;
     }
 
-    public int getStaffNumberInfo(){
+    public static int getStaffNumberInfo(){
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword);
             Statement statement = connection.createStatement();

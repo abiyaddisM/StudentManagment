@@ -49,8 +49,7 @@ public class TeacherRegisterPanel extends ManageRegisterPanel{
                     RowInfoHolder infoHolder=new RowInfoHolder(studentIdLabel.getText(),firstNameTextBox.getString(),lastNameTextBox.getString(),yearComboBox.getText(), monthComboBox.getText(),dayComboBox.getText(),genderComboBox.getText(),studentBatchComboBox.getText(),emailTextBox.getString(),phoneNoTextBox.getString());
                     AddInfo addInfo = new AddInfo(infoHolder);
                     addInfo.addTeacher();
-                    ManagePanel.teacherListPanel.addRow(infoHolder);
-                    ManagePanel.backToOptionPanel();
+
                     clearAll();
                 }
             }

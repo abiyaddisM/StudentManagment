@@ -1,6 +1,7 @@
 package src;
 import AClass.Frame.ATitleBar;
 import BackEnd.ControlPanels;
+import BackEnd.RememberMe;
 import Pages.*;
 import AClass.Frame.AFrame;
 import Pages.CoursePage.CoursePanel;
@@ -28,7 +29,7 @@ public class Main {
         frame.add(managePanel);
         frame.add(settingPanel);
 
-        ControlPanels controlPanels=new ControlPanels();
+
         ControlPanels.setLogin(loginPanel);
         ControlPanels.setSignUp(signUpPanel);
         ControlPanels.setTop(topPanel);
@@ -36,5 +37,11 @@ public class Main {
         ControlPanels.setCourse(coursePanel);
         ControlPanels.setManage(managePanel);
         ControlPanels.setSettings(settingPanel);
+        boolean state= RememberMe.isRememberMeChecked();
+        if(state){
+            ControlPanels.showHome();
+        }else {
+            ControlPanels.showLogin();
+        }
     }
 }

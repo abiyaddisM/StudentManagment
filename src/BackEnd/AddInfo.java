@@ -1,5 +1,8 @@
 package BackEnd;
 
+import Pages.HomePanel;
+import Pages.ManagePage.ManageOptionPanel;
+import Pages.ManagePage.ManagePanel;
 import com.sun.security.jgss.GSSUtil;
 
 import java.sql.*;
@@ -101,6 +104,11 @@ public class AddInfo {
                 insertEmail.close();
 
                 connection.close();
+                ManagePanel.studentListPanel.addRow(infoHolder);
+                ManagePanel.backToOptionPanel();
+                HomePanel.setNumberInfo();
+                ManageOptionPanel.setNumberInfo();
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -194,6 +202,11 @@ public class AddInfo {
                 insertEmail.close();
 
                 connection.close();
+                ManagePanel.teacherListPanel.addRow(infoHolder);
+                ManagePanel.backToOptionPanel();
+                HomePanel.setNumberInfo();
+                ManageOptionPanel.setNumberInfo();
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -287,6 +300,10 @@ public class AddInfo {
                 insertEmail.close();
 
                 connection.close();
+                ManagePanel.staffListPanel.addRow(infoHolder);
+                ManagePanel.backToOptionPanel();
+                HomePanel.setNumberInfo();
+                ManageOptionPanel.setNumberInfo();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

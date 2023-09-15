@@ -32,9 +32,9 @@ public class ManageOptionPanel extends AImagePanel {
             "art/managmentsPage/option/animate/view/pressV.png",0,0,8,0);
     static AButton staffAddButton=new AButton("art/managmentsPage/option/animate/add/normalA.png","art/managmentsPage/option/animate/add/hoverA.png",
             "art/managmentsPage/option/animate/add/pressA.png",0,20,8,0);
-    AImageLabel amountOfStudent=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,-12);
-    AImageLabel amountOfTeacher=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,-12);
-    AImageLabel amountOfStaff=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,-12);
+    static AImageLabel amountOfStudent=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,-12);
+    static AImageLabel amountOfTeacher=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,-12);
+    static  AImageLabel amountOfStaff=new AImageLabel("art/homePage/static/holder/holder.png",20,"Bold",0,0,0,-12);
 
     public ManageOptionPanel() {
         super("art/managmentsPage/option/static/background/background.png",38,300,0,300);
@@ -49,15 +49,14 @@ public class ManageOptionPanel extends AImagePanel {
         addMain(staffOption);
 
     }
-    void setNumberInfo(){
-        NumberInfo numberInfo = new NumberInfo();
-        amountOfStudent.setText(Integer.toString(numberInfo.getStudentNumberInfo()));
+    public static void setNumberInfo(){
+        amountOfStudent.setText(Integer.toString(NumberInfo.getStudentNumberInfo()));
         amountOfStudent.setColor(0xD1CEE7);
 
-        amountOfTeacher.setText(Integer.toString(numberInfo.getTeacherNumberInfo()));
+        amountOfTeacher.setText(Integer.toString(NumberInfo.getTeacherNumberInfo()));
         amountOfTeacher.setColor(0xD1CEE7);
 
-        amountOfStaff.setText(Integer.toString(numberInfo.getStaffNumberInfo()));
+        amountOfStaff.setText(Integer.toString(NumberInfo.getStaffNumberInfo()));
         amountOfStaff.setColor(0xD1CEE7);
     }
     void addButtons(){

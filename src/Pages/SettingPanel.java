@@ -3,7 +3,9 @@ package Pages;
 import AClass.AImagePanel;
 import AClass.Button.AButton;
 import AClass.Frame.AFrame;
+import BackEnd.ControlPanels;
 import BackEnd.LoginVerifcation;
+import BackEnd.RememberMe;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -30,7 +32,7 @@ public class SettingPanel extends JPanel {
     String username="d";
 
     public SettingPanel(){
-        textLabel.setText("heyo");
+
         textLabel.label.setFont(font(28));
 
         setBorder(new EmptyBorder(20,300,0,300));
@@ -49,6 +51,9 @@ public class SettingPanel extends JPanel {
         add(settingPage);
         add(groupMemberImage);
     }
+    static void  addUsername(String name){
+        textLabel.setText(name);
+    }
 
     void addButtons(){
         settingPage.addMain(textLabel);
@@ -66,8 +71,8 @@ public class SettingPanel extends JPanel {
                     groupMemberImage.setPanelOn();
 
                 } else if (e.getSource()==signOutButton.label) {
-
-
+                    RememberMe.updateCheckBoxValue(false);
+                    ControlPanels.showLogin();
 
                 } else if (e.getSource()==exitButton.label) {
                     AFrame.frame.dispose();
