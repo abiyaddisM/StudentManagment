@@ -11,7 +11,7 @@ public class SECourse extends AImagePanel {
     static AButton exitButton=new AButton("art/managmentsPage/register/animated/exitButton/normalE.png","art/managmentsPage/register/animated/exitButton/hoverE.png","art/managmentsPage/register/animated/exitButton/pressE.png",0,0,0,230);
 
     public SECourse() {
-        super("art\\coursePage\\static\\background\\backgroundSE.png",15,0,0,0);
+        super("art/coursePage/static/background/backgroundSE.png",15,0,0,0);
         mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT,0,0));
         addMain(exitButton);
         addAction();

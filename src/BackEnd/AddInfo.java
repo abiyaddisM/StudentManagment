@@ -19,6 +19,7 @@ public class AddInfo {
 
     public void addStudent(){
         int validationCounter = 0;
+
         if (validateFirstName()){
             validationCounter++;
         }

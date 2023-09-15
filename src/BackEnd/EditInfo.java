@@ -26,6 +26,7 @@ public class EditInfo {
             LocalDate date = LocalDate.of(year, month, day);
             Date dob = Date.valueOf(date);
 
+
             String displayID = infoHolder.id;
             preparedStatement.setString(1, infoHolder.firstName );
             preparedStatement.setString(2, infoHolder.lastName);
