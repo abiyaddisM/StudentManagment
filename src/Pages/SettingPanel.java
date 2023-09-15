@@ -20,16 +20,16 @@ public class SettingPanel extends JPanel {
 
     static AButton exitGroupButton=new AButton("art/managmentsPage/register/animated/exitButton/normalE.png","art/managmentsPage/register/animated/exitButton/hoverE.png","art/managmentsPage/register/animated/exitButton/pressE.png",0,0,0,230);
 
-    static AButton groupButton=new AButton("art\\settingPage\\animate\\button\\normalGM.png","art\\settingPage\\animate\\button\\hoverGM.png","art\\settingPage\\animate\\button\\pressGM.png",60,100,0,100);
-    static AButton signOutButton=new AButton("art\\settingPage\\animate\\button\\normalSO.png","art\\settingPage\\animate\\button\\hoverSO.png","art\\settingPage\\animate\\button\\pressSO.png",0,60,0,60);
-    static AButton exitButton=new AButton("art\\settingPage\\animate\\button\\normalE.png","art\\settingPage\\animate\\button\\hoverE.png","art\\settingPage\\animate\\button\\pressE.png");
+    static AButton groupButton=new AButton("art/settingPage/animate/button/normalGM.png","art/settingPage/animate/button/hoverGM.png","art/settingPage/animate/button/pressGM.png",60,100,0,100);
+    static AButton signOutButton=new AButton("art/settingPage/animate/button/normalSO.png","art/settingPage/animate/button/hoverSO.png","art/settingPage/animate/button/pressSO.png",0,60,0,60);
+    static AButton exitButton=new AButton("art/settingPage/animate/button/normalE.png","art/settingPage/animate/button/hoverE.png","art/settingPage/animate/button/pressE.png");
 
-    static   AImagePanel settingPage=new AImagePanel("art\\settingPage\\static\\background\\background.png");
-    static  AImagePanel groupMemberImage=new AImagePanel("art\\settingPage\\static\\background\\groupMembers.png");
+    static   AImagePanel settingPage=new AImagePanel("art/settingPage/static/background/background.png");
+    static  AImagePanel groupMemberImage=new AImagePanel("art/settingPage/static/background/groupMembers.png");
     static   ALabel textLabel=new ALabel(270);
 
     public SettingPanel(){
-        textLabel.setText(username);
+        textLabel.setText("heyo");
         textLabel.label.setFont(font(28));
 
         setBorder(new EmptyBorder(20,0,0,0));
