@@ -12,11 +12,11 @@ import java.awt.event.MouseListener;
 
 
 public class CoursePanel extends JPanel {
-    public static AImagePanel optionPanel=new AImagePanel("art\\coursePage\\static\\background\\background.png",15,0,0,0);
-    static AButton buttonSE=new AButton("art\\coursePage\\animate\\button\\normalSE.png","art\\coursePage\\animate\\button\\hoverSE.png","art\\coursePage\\animate\\button\\pressSE.png");
-    static  AButton buttonCS=new AButton("art\\coursePage\\animate\\button\\normalCS.png","art\\coursePage\\animate\\button\\hoverCS.png","art\\coursePage\\animate\\button\\pressCS.png");
-    static   AButton buttonDS=new AButton("art\\coursePage\\animate\\button\\normalDS.png","art\\coursePage\\animate\\button\\hoverDS.png","art\\coursePage\\animate\\button\\pressDS.png");
-    static    AButton buttonAI=new AButton("art\\coursePage\\animate\\button\\normalAI.png","art\\coursePage\\animate\\button\\hoverAI.png","art\\coursePage\\animate\\button\\pressAI.png");
+    public static AImagePanel optionPanel=new AImagePanel("art/coursePage/static/background/background.png",15,0,0,0);
+    static AButton buttonSE=new AButton("art/coursePage/animate/button/normalSE.png","art/coursePage/animate/button/hoverSE.png","art/coursePage/animate/button/pressSE.png");
+    static  AButton buttonCS=new AButton("art/coursePage/animate/button/normalCS.png","art/coursePage/animate/button/hoverCS.png","art/coursePage/animate/button/pressCS.png");
+    static   AButton buttonDS=new AButton("art/coursePage/animate/button/normalDS.png","art/coursePage/animate/button/hoverDS.png","art/coursePage/animate/button/pressDS.png");
+    static    AButton buttonAI=new AButton("art/coursePage/animate/button/normalAI.png","art/coursePage/animate/button/hoverAI.png","art/coursePage/animate/button/pressAI.png");
 
     static public SECourse sECourse=new SECourse();
     static public CSCourse cSCourse=new CSCourse();
