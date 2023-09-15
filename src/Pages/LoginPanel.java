@@ -52,6 +52,7 @@ public class LoginPanel extends AImagePanel {
         addMain(loginbutton);
         addMain(dontHaveAccImage);
         addMain(signUpButton);
+
     }
     Component getThisPanel(){
         return this;

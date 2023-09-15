@@ -27,14 +27,16 @@ public class SettingPanel extends JPanel {
     static   AImagePanel settingPage=new AImagePanel("art/settingPage/static/background/background.png");
     static  AImagePanel groupMemberImage=new AImagePanel("art/settingPage/static/background/groupMembers.png");
     static   ALabel textLabel=new ALabel(270);
+    String username="d";
 
     public SettingPanel(){
         textLabel.setText("heyo");
         textLabel.label.setFont(font(28));
 
-        setBorder(new EmptyBorder(20,0,0,0));
+        setBorder(new EmptyBorder(20,300,0,300));
         settingPage.mainPanel.setBorder(new EmptyBorder(40,0,0,0));
         settingPage.mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,0,18));
+
         setVisible(false);
         setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
         setOpaque(false);
@@ -64,6 +66,8 @@ public class SettingPanel extends JPanel {
                     groupMemberImage.setPanelOn();
 
                 } else if (e.getSource()==signOutButton.label) {
+
+
 
                 } else if (e.getSource()==exitButton.label) {
                     AFrame.frame.dispose();

@@ -68,7 +68,7 @@ public class ACheckBox extends AButton {
         });
 
     }
-    boolean getState(){
+    public boolean getState(){
         return state;
     }
 
