@@ -3,6 +3,7 @@ import AClass.*;
 import AClass.Button.AButton;
 import BackEnd.ControlPanels;
 import BackEnd.NumberInfo;
+import Pages.CoursePage.CoursePanel;
 import Pages.ManagePage.ManagePanel;
 
 import javax.swing.border.EmptyBorder;
@@ -133,6 +134,28 @@ public class HomePanel extends AImagePanel {
                         TopPanel.hideAllExcept(TopPanel.manageTab);
                         ManagePanel.hideAllExcept(ManagePanel.staffRegisterPanel);
                     }, ControlPanels.delayInMilliSeconds, TimeUnit.MILLISECONDS);
+                }  else if (e.getSource()==sEButton.label){
+                    ControlPanels.showCourse();
+                    TopPanel.hideAllExcept(TopPanel.courseTab);
+                    CoursePanel.hideAllExcept(CoursePanel.sECourse);
+
+                }else if (e.getSource()==cSButton.label){
+                    ControlPanels.showCourse();
+
+                    TopPanel.hideAllExcept(TopPanel.courseTab);
+                    CoursePanel.hideAllExcept(CoursePanel.cSCourse);
+                }else if (e.getSource()==dSButton.label){
+                    ControlPanels.showCourse();
+
+                    TopPanel.hideAllExcept(TopPanel.courseTab);
+                    CoursePanel.hideAllExcept(CoursePanel.dSCourse);
+
+                }else if (e.getSource()==aIButton.label){
+                    ControlPanels.showCourse();
+
+                    TopPanel.hideAllExcept(TopPanel.courseTab);
+                    CoursePanel.hideAllExcept(CoursePanel.aICourse);
+
                 }
             }
         };
@@ -140,5 +163,9 @@ public class HomePanel extends AImagePanel {
         totalStudentButton.label.addMouseListener(addButtonAction);
         totalTeacherButton.label.addMouseListener(addButtonAction);
         totalStaffButton.label.addMouseListener(addButtonAction);
+        sEButton.label.addMouseListener(addButtonAction);
+        cSButton.label.addMouseListener(addButtonAction);
+        dSButton.label.addMouseListener(addButtonAction);
+        aIButton.label.addMouseListener(addButtonAction);
     }
 }

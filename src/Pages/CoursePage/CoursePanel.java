@@ -18,10 +18,10 @@ public class CoursePanel extends JPanel {
     static   AButton buttonDS=new AButton("art\\coursePage\\animate\\button\\normalDS.png","art\\coursePage\\animate\\button\\hoverDS.png","art\\coursePage\\animate\\button\\pressDS.png");
     static    AButton buttonAI=new AButton("art\\coursePage\\animate\\button\\normalAI.png","art\\coursePage\\animate\\button\\hoverAI.png","art\\coursePage\\animate\\button\\pressAI.png");
 
-    static SECourse sECourse=new SECourse();
-    static CSCourse cSCourse=new CSCourse();
-    static DSCourse dSCourse=new DSCourse();
-    static AICourse aICourse=new AICourse();
+    static public SECourse sECourse=new SECourse();
+    static public CSCourse cSCourse=new CSCourse();
+    static public DSCourse dSCourse=new DSCourse();
+    static public AICourse aICourse=new AICourse();
     public CoursePanel() {
         optionPanel. mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,6,0));
         optionPanel.mainPanel.setBorder(new EmptyBorder(10,0,0,0));
